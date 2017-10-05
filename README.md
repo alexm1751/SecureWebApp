@@ -8,7 +8,7 @@ Final Year Web Application for CTEC3110
 - Dominic Bryan
 
 ## Instalation:
-1. Clone or Download the repo into your Mamp > htdocs Folder: git clone <repo URL>.
+1. Clone or Download the repo into your Mamp > htdocs Folder: git clone repo https://github.com/alexm1751/SecureWebApp.git.
 2. Do a git pull once here to make sure you have the latest version of the Master repo.
 
 ## Pull Request/Making a Change
