@@ -4,7 +4,7 @@ Final Year Web Application for CTEC3110
 ## Contributers:
 
 - Alex Mason!
-- Alistair Laughland
+- Alistair Laughland!
 - Dominic Bryan
 
 ## Instalation:
