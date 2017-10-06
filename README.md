@@ -5,7 +5,7 @@ Final Year Web Application for CTEC3110
 
 - Alex Mason!
 - Alistair Laughland!
-- Dominic Bryan
+- Dominic Bryan?
 
 ## Instalation:
 1. Clone or Download the repo into your Mamp > htdocs Folder: git clone repo https://github.com/alexm1751/SecureWebApp.git.
@@ -20,6 +20,3 @@ Final Year Web Application for CTEC3110
 5. Then commit these once you are happy: git commit -m 'Message about the commit these are needed for reviewal'
 6. Push the branch to master: git push -u origin 'branch_name'.
 7. Finally go to the git repo and click create pull request and assign other contributors to review the code.
-
-
-
