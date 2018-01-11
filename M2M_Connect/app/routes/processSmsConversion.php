@@ -17,12 +17,11 @@ $app->post(
 
         $messages = $sms_model->getUnreadMessages();
 
-//        $validator = new SMSvalidator($messages);
-        $validator = $this->get('validator');
-        $validator->init($messages);
-        $validated_messages = $validator->validateMessages();
 
-        foreach ($validated_messages as $message){
+
+        $parsed_xml = '';
+
+        foreach ($messages as $message){
 
             $xml = simplexml_load_string($message);
             if ($xml === false) {
@@ -31,12 +30,16 @@ $app->post(
                     echo "<br>", $error->message;
                 }
             } else {
-                print_r($xml);
+                $parsed_xml = $xml;
             }
 
         };
 
 
+        $validator = $this->get('validator');
+        $validator->init($parsed_xml);
+        $validated_messages = $validator->validateMessages();
+        var_dump($validated_messages);
 
 
         return $this->view->render($response,
