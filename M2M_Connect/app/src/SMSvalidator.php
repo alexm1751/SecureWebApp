@@ -11,9 +11,8 @@ class SMSvalidator
 
     private $message;
 
-    public function __construct($message)
+    public function __construct()
     {
-        $this->message = $message;
     }
 
     public function init($message) {
@@ -24,8 +23,9 @@ class SMSvalidator
 
     private function getMessageItem($Field)
     {
+        var_dump($this->message);
         if (!isset($this->message[$Field])) {
-//            throw new MissingSMSFieldException($Field);
+            throw new MissingSMSFieldException($Field);
 
         }
 
