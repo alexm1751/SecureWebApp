@@ -13,7 +13,7 @@ class SmsConversionModel
 
     public function __destruct(){}
 
-    private function create_soap_client()
+    public function create_soap_client()
     {
         $obj_soap_client_handle = false;
 
@@ -23,7 +23,7 @@ class SmsConversionModel
         try {
             $obj_soap_client_handle = new SoapClient($m_wsdl, $m_arr_soapclient);
             var_dump($obj_soap_client_handle->__getFunctions());
-            var_dump($obj_soap_client_handle->__getTypes());
+            //var_dump($obj_soap_client_handle->__getTypes());
         } catch (SoapFault $m_obj_exception) {
             trigger_error($m_obj_exception);
         }

@@ -31,9 +31,9 @@ $container['view'] = function ($container) {
 //    return $validator;
 //};
 //
-//$container['tempconv_model'] = function ($container) {
-//    $class_path = $container->get('settings')['class_path'];
-//    require $class_path . 'SmsConversionModel.php';
-//    $model = new TemperatureConversionModel();
-//    return $model;
-//};
+$container['sms_model'] = function ($container) {
+    $class_path = $container->get('settings')['class_path'];
+    require $class_path . 'SmsConversionModel.php';
+    $model = new SmsConversionModel();
+    return $model;
+};
