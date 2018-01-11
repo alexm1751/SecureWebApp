@@ -1,6 +1,6 @@
 <?php
 /**
- * class XmlParser
+ * class SMSXmlParser
  *
  * Parses a given XML string and returns an associative array
  * todo: include attributes in output - how?
@@ -9,7 +9,7 @@
  * @copyright De Montfort University
  */
 
-class XmlParser
+class SMSXmlParser
 {
   private $c_xml_parser;							  // handle to instance of the XML parser
   private $c_arr_parsed_data;	          // array holds extracted data
