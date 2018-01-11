@@ -24,12 +24,12 @@ $container['view'] = function ($container) {
     return $view;
 };
 
-//$container['validator'] = function ($container) {
-//    $class_path = $container->get('settings')['class_path'];
-//    require $class_path . 'SMSvalidator.php';
-//    $validator = new SMSvalidator;
-//    return $validator;
-//};
+$container['validator'] = function ($container) {
+    $class_path = $container->get('settings')['class_path'];
+    require $class_path . 'SMSvalidator.php';
+    $validator = new SMSvalidator;
+    return $validator;
+};
 
 $container['sms_model'] = function ($container) {
     $class_path = $container->get('settings')['class_path'];

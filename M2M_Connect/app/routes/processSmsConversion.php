@@ -13,12 +13,16 @@ $app->post(
     '/processsmsconversion',
     function(Request $request, Response $response) use ($app)  {
 
-
         $sms_model = $this->get('sms_model');
 
         $messages = $sms_model->getUnreadMessages();
 
-        foreach ($messages as $message){
+//        $validator = new SMSvalidator($messages);
+        $validator = $this->get('validator');
+        $validator->init($messages);
+        $validated_messages = $validator->validateMessages();
+
+        foreach ($validated_messages as $message){
 
             $xml = simplexml_load_string($message);
             if ($xml === false) {
