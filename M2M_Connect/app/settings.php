@@ -10,6 +10,9 @@ ini_set('display_errors', 'On');
 ini_set('html_errors', 'On');
 ini_set('xdebug.trace_output_name', 'stock_quote_details.%t');
 
+$arr_detail_types = [ 'readMessages'];
+define('DETAIL_TYPES', $arr_detail_types);
+
 define('DIRSEP', DIRECTORY_SEPARATOR);
 
 $url_root = $_SERVER['SCRIPT_NAME'];
