@@ -11,6 +11,13 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 $app->get('/', function(Request $request, Response $response)
 {
+
+
+
+    $model = $this->get('sms_model');
+    $model->create_soap_client();
+    var_dump($model);
+
     return $this->view->render($response,
         'homepageform.html.twig',
         [
