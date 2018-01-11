@@ -16,13 +16,19 @@ class SMSvalidator
         $this->message = $message;
     }
 
+    public function init($message) {
+        $this->message = $message;
+    }
+
     public function __destruct() { }
 
     private function getMessageItem($Field)
     {
         if (!isset($this->message[$Field])) {
-            throw new MissingSMSFieldException($Field);
+//            throw new MissingSMSFieldException($Field);
+
         }
+
         return $this->message[$Field];
     }
 
