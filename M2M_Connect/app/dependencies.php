@@ -26,14 +26,21 @@ $container['view'] = function ($container) {
 
 //$container['validator'] = function ($container) {
 //    $class_path = $container->get('settings')['class_path'];
-//    require $class_path . 'validator.php';
-//    $validator = new Validator();
+//    require $class_path . 'SMSvalidator.php';
+//    $validator = new SMSvalidator;
 //    return $validator;
 //};
-//
+
 $container['sms_model'] = function ($container) {
     $class_path = $container->get('settings')['class_path'];
     require $class_path . 'SmsConversionModel.php';
     $model = new SmsConversionModel();
+    return $model;
+};
+
+$container['xml_parser'] = function ($container) {
+    $class_path = $container->get('settings')['class_path'];
+    require $class_path . 'SMSxmlParser.php';
+    $model = new SMSXmlParser();
     return $model;
 };

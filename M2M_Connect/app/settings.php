@@ -10,8 +10,7 @@ ini_set('display_errors', 'On');
 ini_set('html_errors', 'On');
 ini_set('xdebug.trace_output_name', 'stock_quote_details.%t');
 
-$arr_detail_types = [ 'readMessages'];
-define('DETAIL_TYPES', $arr_detail_types);
+
 
 define('DIRSEP', DIRECTORY_SEPARATOR);
 
@@ -24,12 +23,10 @@ $arr_script_filename = explode('/' , $script_filename, '-1');
 $script_path = implode('/', $arr_script_filename) . '/';
 
 define('CSS_PATH', $css_path);
-define('APP_NAME', 'Stock Quote Charts');
+define('APP_NAME', 'EE M2M SOAP Server Application');
 define('LANDING_PAGE', $_SERVER['SCRIPT_NAME']);
 
-define ('LIB_CHART_OUTPUT_PATH', 'media/charts/');
-define ('LIB_CHART_FILE_PATH', $script_path);
-define ('LIB_CHART_CLASS_PATH', 'libchart/classes/');
+
 
 $settings = [
   "settings" => [
