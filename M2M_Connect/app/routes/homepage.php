@@ -15,8 +15,9 @@ $app->get('/', function(Request $request, Response $response)
 
 
     $model = $this->get('sms_model');
-    $model->create_soap_client();
-    var_dump($model);
+//    $model->create_soap_client();
+    $model->getDeliveryReports();
+    var_dump($model->getUnreadMessages());
 
     return $this->view->render($response,
         'homepageform.html.twig',
