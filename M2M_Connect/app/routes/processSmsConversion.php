@@ -22,16 +22,17 @@ $app->post(
         $sms_model = $this->get('sms_model');
 
 
+        /**<messagerx><sourcemsisdn>447817814149</sourcemsisdn><destinationmsisdn>447817814149</destinationmsisdn><receivedtime>12/01/2018 15:24:09</receivedtime><bearer>SMS</bearer><messageref>0</messageref><message>Hello5 </message></messagerx>**/
 
         $arr_tainted_messages = $sms_model->getUnreadMessages();
 
         //var_dump($arr_tainted_messages);
         foreach($arr_tainted_messages as $tainted_message){
 
-
+            //var_dump($tainted_message);
 //DOM HERE ----->
             $xml_parser->set_xml_string_to_parse($tainted_message);
-            //var_dump($tainted_message);
+
             $xml_parser->parse_the_xml_string();
             $xml = $xml_parser->get_parsed_data();
             //var_dump($xml);
@@ -74,9 +75,10 @@ $app->post(
 
 
 
-           echo $message;
 
+            echo $message;
 
+            $xml_parser->clear_data();
 
         }
 
