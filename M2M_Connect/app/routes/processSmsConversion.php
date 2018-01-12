@@ -31,7 +31,7 @@ $app->post(
         foreach($arr_tainted_messages as $tainted_message){
 
             //Uncomment and use var below this comment to test for passing Null
-            $tainted_message = null;
+            //$tainted_message = null;
             try {
                 $xml_parser->set_xml_string_to_parse($tainted_message);
             } catch (Exception $e) {
