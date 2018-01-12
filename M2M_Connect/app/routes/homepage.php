@@ -12,12 +12,6 @@ use \Psr\Http\Message\ResponseInterface as Response;
 $app->get('/', function(Request $request, Response $response)
 {
 
-    $sms_model = $this->get('sms_model');
-
-
-
-    $messages = $sms_model->getUnreadMessages();
-    var_dump($messages);
     return $this->view->render($response,
         'homepageform.html.twig',
         [
