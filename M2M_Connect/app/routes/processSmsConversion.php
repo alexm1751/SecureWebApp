@@ -26,12 +26,19 @@ $app->post(
 
         $arr_tainted_messages = $sms_model->getUnreadMessages();
 
+
         //var_dump($arr_tainted_messages);
         foreach($arr_tainted_messages as $tainted_message){
 
-            //var_dump($tainted_message);
-//DOM HERE ----->
-            $xml_parser->set_xml_string_to_parse($tainted_message);
+            //Uncomment and use var below this comment to test for passing Null
+            $tainted_message = null;
+            try {
+                $xml_parser->set_xml_string_to_parse($tainted_message);
+            } catch (Exception $e) {
+                print("We got nothing I tell you!");
+                break;
+            }
+
 
             $xml_parser->parse_the_xml_string();
             $xml = $xml_parser->get_parsed_data();

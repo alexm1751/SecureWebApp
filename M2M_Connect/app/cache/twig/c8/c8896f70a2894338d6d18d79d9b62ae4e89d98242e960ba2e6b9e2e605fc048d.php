@@ -40,11 +40,7 @@ class __TwigTemplate_30173636458ac224d0a5671bd718ef8df8c454cdc5be7f750121be76f9d
         // line 5
         echo twig_escape_filter($this->env, ($context["page_heading_1"] ?? null), "html", null, true);
         echo "</h1>
-    <p class=\"cent\">
-        Page last updated on <script type=\"text/javascript\">document.write(document.lastModified)</script>
-        <br />
-        Maintained by <a href=\"mailto:cfi@dmu.ac.uk\">cfi@dmu.ac.uk</a>
-    </p>
+
     <hr class=\"deepline\"/>
 </div>
 <div id=\"clear-div\"></div>
