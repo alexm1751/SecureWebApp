@@ -19,12 +19,12 @@ class SmsConversionModel
 
     public function getUnreadMessages()
     {
-        return $this->client->peekMessages('17alexmason','Fendervox50', 10);
+        return $this->client->peekMessages('17alexmason','Fendervox50', 50);
     }
 
     public function getDeliveryReports()
     {
-        return $this->client->getDeliveryReports('17alexmason','Fendervox50', 10);
+        return $this->client->getDeliveryReports('17alexmason','Fendervox50', 50);
 
     }
 
