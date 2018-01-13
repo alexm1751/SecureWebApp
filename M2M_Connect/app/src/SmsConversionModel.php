@@ -28,4 +28,20 @@ class SmsConversionModel
 
     }
 
+    public function getMessagesDB(){
+
+    }
+
+    public function setMessagesDB(){
+
+    }
+
+    public function getUserDetails(){
+
+    }
+
+    public function setuserDetails(){
+
+    }
+
 }

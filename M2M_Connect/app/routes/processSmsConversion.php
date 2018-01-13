@@ -83,7 +83,7 @@ $app->post(
 
 
 
-            echo $message;
+            //echo $message;
 
             $xml_parser->clear_data();
 
