@@ -1,7 +1,7 @@
 <?php
 
 /* banner.html.twig */
-class __TwigTemplate_f9b99648b4d0f03c28d93560c4b1d9b4e3b19fcf74f8ec197c5479cc112f6ff1 extends Twig_Template
+class __TwigTemplate_30173636458ac224d0a5671bd718ef8df8c454cdc5be7f750121be76f9d3da0e extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {

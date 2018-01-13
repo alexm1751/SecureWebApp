@@ -40,15 +40,16 @@ class SmsConversionModel
         {
             while ($m_row = $p_wrapper_mysql->safe_fetch_array())
             {
-                //var_dump($m_row);
                 $m_number = $m_row['number'];
                 $m_receiver = $m_row['receiver'];
                 $m_time = $m_row['time'];
                 $m_bearer = $m_row['bearer'];
                 $m_ref = $m_row['ref'];
                 $m_message = $m_row['message'];
-//                $arr_messages[] ='('. $m_number . $m_receiver . $m_time . $m_bearer . $m_ref . $m_message . ')';
-                array_push($arr_messages, '('. $m_number . $m_receiver . $m_time . $m_bearer . $m_ref . $m_message . ')');
+
+                $m = new messageDisplay();
+                $m->init($m_number, $m_receiver, $m_time, $m_bearer, $m_ref, $m_message);
+                array_push($arr_messages, $m);
             }
         }
         else

@@ -13,7 +13,7 @@ class messageDisplay
    private $date ;
    private $bearer;
    private $ref ;
-   private $message ;
+   private $message;
 
 
    public function __construct()
