@@ -109,7 +109,7 @@ $app->post(
         //var_dump($result);
 
         $list_messages = $sms_model->getMessagesDB($db_handle,$sql_queries,$wrapper_mysql);
-        print_r($list_messages[0]->message);
+        print_r($list_messages[0]);
       // var_dump($list_messages);
 
 
