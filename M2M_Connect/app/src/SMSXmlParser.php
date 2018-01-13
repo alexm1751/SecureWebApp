@@ -25,11 +25,20 @@ class SMSXmlParser
     // release retained memory
     public function __destruct()
     {
-        xml_parser_free($this->c_xml_parser);
+        if (is_null($this->c_xml_parser)) {
+            return;
+        } else {
+            xml_parser_free($this->c_xml_parser);
+        }
+
     }
 
     public function set_xml_string_to_parse($p_xml_string_to_parse)
     {
+        if ($p_xml_string_to_parse === "" || is_null($p_xml_string_to_parse)) {
+            throw new Exception("XML is empty");
+        }
+
         $this->c_xml_string_to_parse = $p_xml_string_to_parse;
     }
 

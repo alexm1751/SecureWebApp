@@ -43,7 +43,9 @@ class __TwigTemplate_7ae8e95272da8b4e6d3f89107eed17e2d8c6d43d1cfe6d1286240824e38
         echo "\" method=\"";
         echo twig_escape_filter($this->env, ($context["method"] ?? null), "html", null, true);
         echo "\">
-
+        <fieldset>
+            <input type=\"submit\" value=\"Display Unread Messages\">
+        </fieldset>
         </form>
     </div>
 ";
