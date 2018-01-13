@@ -51,29 +51,13 @@ class SmsConversionModel
 
                 $m = new messageDisplay();
                 $m->init($m_number, $m_receiver, $m_time, $m_bearer, $m_ref, $m_message);
-                //array_push($arr_messages, $m);
-                $sender= $m->getSender();
-                $receiver= $m->getReceiver();
-                $time= $m->getReceiver();
-                $bearer= $m->getbearer();
-                $ref= $m->getref();
-                $message= $m->getmessage();
-
-                $display=(PHP_EOL. 'Source= ' . $sender . PHP_EOL
-                . "Receiver= " . $receiver . PHP_EOL
-                . "Time= " . $time . PHP_EOL
-                . "Bearer= " . $bearer . PHP_EOL
-                . "Ref= " . $ref . PHP_EOL
-                . "Message= " . $message);
-
-                //$arr_messages[$count++] = $display;
+                array_push($arr_messages, $m);
             }
         }
         else
         {
             $arr_messages[0] = 'No Messages found';
         }
-        //var_dump($arr_messages);
         return $arr_messages;
 
     }
