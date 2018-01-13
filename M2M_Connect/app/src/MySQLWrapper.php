@@ -59,7 +59,7 @@ class MySQLWrapper
             $m_error_message  = 'PDO Exception caught. ';
             $m_error_message .= 'Error with the database access.' . "\n";
             $m_error_message .= 'SQL query: ' . $m_query_string . "\n";
-            $m_error_message .= 'Error: ' . var_dump($this->c_obj_stmt->errorInfo(), true) . "\n";
+            $m_error_message .= 'Error: ' . //var_dump($this->c_obj_stmt->errorInfo(), true) . "\n";
             // NB would usually output to file for sysadmin attention
             $this->c_arr_errors['db_error'] = true;
             $this->c_arr_errors['sql_error'] = $m_error_message;

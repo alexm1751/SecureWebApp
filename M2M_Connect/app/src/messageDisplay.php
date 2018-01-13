@@ -16,7 +16,12 @@ class messageDisplay
    private $message ;
 
 
-   public function __construct($sender,$receiver,$date,$bearer,$ref, $message)
+   public function __construct()
+   {
+
+   }
+
+   public function init($sender,$receiver,$date,$bearer,$ref, $message)
    {
 
        $this->sender = $sender;
@@ -26,6 +31,8 @@ class messageDisplay
        $this->ref = $ref;
        $this->message = $message;
    }
+
+
 
    public function _toString(){
 

@@ -14,12 +14,21 @@ $app->post(
     function(Request $request, Response $response) use ($app)  {
 
 
+        $c_arr_clean_message = [];
 
         $xml_parser = $this->get('xml_parser');
 
         $validator = $this->get('validator');
 
         $sms_model = $this->get('sms_model');
+
+        $db_handle = $this->get('dbase');
+
+        $sql_queries = $this->get('sql_queries');
+
+        $wrapper_mysql = $this->get('mysql_wrapper');
+
+        $message_display = $this->get('messageDisplay');
 
 
         /**<messagerx><sourcemsisdn>447817814149</sourcemsisdn><destinationmsisdn>447817814149</destinationmsisdn><receivedtime>12/01/2018 15:24:09</receivedtime><bearer>SMS</bearer><messageref>0</messageref><message>Hello5 </message></messagerx>**/
@@ -71,23 +80,36 @@ $app->post(
 
             $tainted_message = $arr_parsed_xml['MESSAGE'];
             $clean_message = $validator->validate_message($tainted_message);
+
+           // $c_arr_clean_message = $message_display->init($clean_source,$clean_receiver,$clean_time,$clean_bearer,$clean_ref,$clean_message);
+
+            //var_dump($c_arr_clean_message);
             //var_dump($clean_message);
 
-            $message=(PHP_EOL. 'Source= ' . $clean_source . PHP_EOL
-                . "Receiver= " . $clean_receiver . PHP_EOL
-                . "Time= " . $clean_time . PHP_EOL
-                . "Bearer= " . $clean_bearer . PHP_EOL
-                . "Ref= " . $clean_ref . PHP_EOL
-                . "Message= " . $clean_message);
+//            $message=(PHP_EOL. 'Source= ' . $clean_source . PHP_EOL
+//                . "Receiver= " . $clean_receiver . PHP_EOL
+//                . "Time= " . $clean_time . PHP_EOL
+//                . "Bearer= " . $clean_bearer . PHP_EOL
+//                . "Ref= " . $clean_ref . PHP_EOL
+//                . "Message= " . $clean_message);
 
 
 
 
-            echo $message;
+            //echo $message;
 
             $xml_parser->clear_data();
-
+            $result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $clean_source, $clean_receiver, $clean_time, $clean_bearer, $clean_ref, $clean_message);
+            var_dump($result);
         }
+
+        //$result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $c_arr_clean_message);
+
+        //var_dump($result);
+
+        $list_messages = $sms_model->getMessagesDB($db_handle,$sql_queries,$wrapper_mysql);
+
+       //var_dump($list_messages);
 
 
 
