@@ -82,23 +82,6 @@ $app->post(
             $tainted_message = $arr_parsed_xml['MESSAGE'];
             $clean_message = $validator->validate_message($tainted_message);
 
-           // $c_arr_clean_message = $message_display->init($clean_source,$clean_receiver,$clean_time,$clean_bearer,$clean_ref,$clean_message);
-
-            //var_dump($c_arr_clean_message);
-            //var_dump($clean_message);
-
-//            $message=(PHP_EOL. 'Source= ' . $clean_source . PHP_EOL
-//                . "Receiver= " . $clean_receiver . PHP_EOL
-//                . "Time= " . $clean_time . PHP_EOL
-//                . "Bearer= " . $clean_bearer . PHP_EOL
-//                . "Ref= " . $clean_ref . PHP_EOL
-//                . "Message= " . $clean_message);
-
-
-
-
-            //echo $message;
-
             $xml_parser->clear_data();
             $result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $clean_source, $clean_receiver, $clean_time, $clean_bearer, $clean_ref, $clean_message);
 //            var_dump($result);
@@ -109,43 +92,7 @@ $app->post(
         //var_dump($result);
 
         $list_messages = $sms_model->getMessagesDB($db_handle,$sql_queries,$wrapper_mysql);
-        print_r($list_messages[0]->getMessage());
-//       var_dump($list_messages);
-
-
-
-//      I Just need a way of printing it all out now
-
-//        $sms_model = $this->get('sms_model');
-//
-//        $messages = $sms_model->getUnreadMessages();
-//
-//
-//
-//        $parsed_xml = '';
-//
-//        foreach ($messages as $message){
-//
-//            $xml = simplexml_load_string($message);
-//            if ($xml === false) {
-//                echo "Failed loading XML: ";
-//                foreach(libxml_get_errors() as $error) {
-//                    echo "<br>", $error->message;
-//                }
-//            } else {
-//                $parsed_xml = $xml;
-//            }
-//
-//        };
-//
-//
-//        $validator = $this->get('validator');
-        //$validator->init($details);
-        //$validated_messages = $validator->validateMessages();
-        //var_dump($validated_messages);
-
-        //var_dump($details);
-
+//        print_r($list_messages[0]->getMessage());
 
 
 
@@ -157,7 +104,7 @@ $app->post(
                 'initial_input_box_value' => null,
                 'page_title' => APP_NAME,
                 'page_heading_1' => APP_NAME,
-                'page_heading_2' => 'Result',
+                'message_array' => $list_messages,
 
             ]);
     });

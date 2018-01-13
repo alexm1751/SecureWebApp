@@ -1,9 +1,101 @@
 {% extends 'banner.html.twig' %}
 {% block content %}
-  <div id="lg-form-container">
-  <h2>{{ page_heading_2 }}</h2>
-  <p>{{ page_text }}</p>
-    <p>Messages</p>
+  <!--  NAVIGATION -->
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="message.html" class="active">Account</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
 
-  </div>
+
+
+
+  <main class="main" id="mainmessage">
+    <!--    INTRO -->
+    <h3>Hello, Barry!</h3>
+    <h4>Select below the messages you would like to view: all messages or your own messages.</h4>
+
+    <button type="button" id="logout">Logout</button>
+
+    <div class="container">
+      <form action="message.html" method="get">
+
+        <p>View Messages:</p>
+
+        <button type="button" class="messages" id="allmessage">All Messages</button>
+        <button type="button" class="messages" id="mymessage">My Messages</button>
+      </form>
+    </div>
+
+
+    {% for message in message_array %}
+      <!--    MESSAGES  -->
+      <div class="forms">
+        <!--    REGISTER  -->
+        <section class="messages">
+          <!--    LOGIN  -->
+          <form action="registered.html" method="get">
+            <h4>Message</h4>
+
+            <label>Message ID:</label>
+            <output>000</output>
+            <label>Number:</label>
+            <output>{{ message.getSender() }}</output>
+            <label>Receiver:</label>
+            <output>{{ message.getReceiver() }}</output>
+            <label>Time:</label>
+            <output>{{ message.getDate() }}</output>
+            <label>Bearer:</label>
+            <output>{{ message.getBearer() }}</output>
+            <label>Ref:</label>
+            <output>{{ message.getRef() }}</output>
+            <label>Message:</label>
+            <textarea>{{ message.getMessage() }}</textarea>
+          </form>
+        </section>
+      </div>
+    {% endfor %}
+
+
+
+
+    {#<div class="forms">#}
+      {#<!--    REGISTER  -->#}
+      {#<section class="messages">#}
+        {#<!--    LOGIN  -->#}
+        {#<form action="registered.html" method="get">#}
+          {#<h4>Message</h4>#}
+
+          {#<label>Message ID:</label>#}
+          {#<output>ID: 4541314</output>#}
+          {#<label>Number:</label>#}
+          {#<output>+447123123123</output>#}
+          {#<label>Receiver:</label>#}
+          {#<output>+447321321321</output>#}
+          {#<label>Time:</label>#}
+          {#<output>2018-01-13 17:13:37</output>#}
+          {#<label>Bearer:</label>#}
+          {#<output>SMS</output>#}
+          {#<label>Ref:</label>#}
+          {#<output>IDCDXSDS</output>#}
+          {#<label>Message:</label>#}
+          {#<textarea></textarea>#}
+        {#</form>#}
+      {#</section>#}
+    {#</div>#}
+  {#</main>#}
+
+
+
+  <!--  FOOTER   -->
+  <footer class="footer">
+    <h5><a href="index.html" class="heading">EE M2M SOAP Server Application</a></h5>
+    <h6><a href="index.html" class="heading">CTEC3110 Secure Web Application Development</a></h6>
+
+    <p id="footer"><a href="https://github.com/alexm1751/SecureWebApp">Created by Alex Mason, Dominic Bryan and Alistair Laughland</a></p>
+
+    <a href="https://validator.w3.org/"><img src="https://www.w3.org/Icons/valid-html401" alt="w3 HTML 4.01 / HTML DTD Validation" id="validation"></a>
+  </footer>
 {% endblock %}

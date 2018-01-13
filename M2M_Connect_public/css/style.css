@@ -1,0 +1,318 @@
+html,
+body,
+header {
+  margin: 0;
+  padding: 0;
+  background-color: darkslategray;
+}
+
+body {
+  font-family: Helvetica, Arial;
+  width: 1200px;
+  margin: auto;
+  background: white;
+}
+
+main {
+  min-height: 660px;
+  background-color: #ededed;
+  padding: 0;
+  margin: 0;
+}
+
+#mainmessage{
+  height: 1000px;
+}
+
+section.login {
+  margin: 15px 20px 20px 25px;
+  padding: 40px;
+  width: 467px;
+  height: 400px;
+  background-color: #4ca0ad;
+  float: left;
+  border: 4px;
+  border-color: white;
+  border-style: solid;
+}
+
+section.register {
+  margin: 15px 25px 20px 20px;
+  padding: 40px;
+  width: 467px;
+  height: 400px;
+  background-color: #4ca0ad;
+  float: right;
+  border: 4px;
+  border-color: white;
+  border-style: solid;
+}
+
+section.messages {
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding: 40px;
+  width: 467px;
+  height: 550px;
+  background-color: #4ca0ad;
+  border: 4px;
+  border-color: white;
+  border-style: solid;
+}
+/*messages*/
+div.container {
+  height: 100px;
+}
+
+header {
+  background-color: #f4f5fc;
+  border-top: 6px solid #337983;
+}
+
+footer {
+  background-color: #f4f5fc;
+  position: inherit;
+  border-top: 4px solid #4ca0ad;
+  border-bottom: 8px solid #337983;
+}
+
+
+/*  HEADINGS  */
+
+h1 {
+  margin: 0;
+  padding: 30px 0 0 100px;
+  color: #269999;
+  font-size: 2.5em;
+}
+
+h2 {
+  margin: 0;
+  padding: 5px 0 30px 100px;
+  color: grey;
+}
+
+h3 {
+  margin: 0;
+  padding: 30px 0 3px 0;
+  color: darkslategray;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+h4 {
+  margin: 0;
+  padding: 3px 0 18px 0;
+  color: darkslategray;
+  text-align: center;
+}
+
+.forms h4 {
+  padding: 0 0 20px 0;
+  font-size: 1.15em;
+  color: white;
+}
+
+h5 {
+  margin: 0;
+  padding: 40px 0 3px 0;
+  font-size: 1.2em;
+  text-align: center;
+  color: #337983;
+}
+
+h6 {
+  margin: 0;
+  padding: 3px 0 10px 0;
+  font-size: 1em;
+  text-align: center;
+  color: grey;
+}
+
+/* PARAGRAPH */
+
+p#footer {
+  color: grey;
+  text-align: center;
+  font-size: 12px;
+}
+
+p#footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.heading {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container p {
+  margin: 10px 0px 5px 540px;
+}
+
+
+/* FORM */
+
+label {
+  margin: 5px 0 0px 88px;
+  display: inline-block;
+  width: 100%;
+  float: left;
+  color: white;
+}
+
+.messages label {
+  margin: 5px 0 0 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+output {
+  margin: 5px  0 0;
+  display: inline-block;
+  width: 100%;
+  float: right;
+  color: yellow;
+}
+
+input {
+  margin: 5px 0 14px 80px;
+  padding: 2px 2px 2px 8px;
+  display: inline-block;
+  float: left;
+  width: 280px;
+  height: 26px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px;
+  display: inline-block;
+  float: right;
+  width: 100px;
+  font-size: 16px;
+  background: #337983;
+  border: 2px solid;
+  border-color: white;
+  color: white;
+  border-radius: 5px;
+}
+
+button#login {
+  margin: 25px 65px 10px 0px;
+}
+
+button#register {
+  margin: 20px 65px 10px 0px;
+}
+
+button#logout {
+  padding: 6px;
+  position: absolute;
+  right: 240px;
+  top: 200px;
+  width: 80px;
+  font-size: 15px;
+  background: white;
+  border: 2px solid;
+  border-color: black;
+  color: black;
+  border-radius: 5px;
+}
+
+button.messages {
+  padding: 10px;
+  position: absolute;
+  width: 150px;
+  font-size: 15px;
+  background: white;
+  border: 2px solid;
+  border-color: black;
+  color: black;
+  border-radius: 5px;
+}
+
+button#allmessage {
+  margin: 5px 10px 10px 440px;
+}
+
+button#mymessage {
+  margin: 5px 10px 10px 610px;
+}
+
+textarea {
+  margin: 10px 0 10px 0;
+  width: 100%;
+  line-height: 8;
+}
+
+fieldset {
+  border: none;
+}
+
+/* NAVIGATION */
+nav {
+  margin: 0 !important;
+  padding: 0;
+  background: #929fad;
+  border-top: 3px solid #4ca0ad;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+}
+
+nav a {
+  display: block;
+  padding: 12px 24px;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-right: 1px solid lightgrey;
+}
+
+a.active {
+  color: #ffffff;
+  background: #4ca0ad;
+}
+
+nav ul li {
+  margin: 0px;
+  display: inline-block;
+  float: left;
+  background-color: #929fad;
+}
+
+nav a:hover {
+  background-color: #999;
+}
+
+nav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#validation {
+  padding: 4px 0 10px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer p {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+}
+
+.footer p a {
+  text-decoration: none;
+}

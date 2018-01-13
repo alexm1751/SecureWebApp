@@ -43,24 +43,24 @@ class messageDisplay
 
     }
 
-    public function getdate(){
+    public function getDate(){
        return $this->date;
 
     }
 
-    public function getbearer(){
+    public function getBearer(){
 
        return $this->bearer;
 
     }
 
-    public function getref(){
+    public function getRef(){
 
        return $this->ref;
 
     }
 
-    public function getmessage(){
+    public function getMessage(){
 
        return $this->message;
 
