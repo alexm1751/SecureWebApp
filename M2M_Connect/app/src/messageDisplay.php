@@ -32,6 +32,40 @@ class messageDisplay
        $this->message = $message;
    }
 
+   public function getSender(){
+
+       return $this->sender;
+   }
+
+    public function getReceiver(){
+
+       return $this->receiver;
+
+    }
+
+    public function getdate(){
+       return $this->date;
+
+    }
+
+    public function getbearer(){
+
+       return $this->bearer;
+
+    }
+
+    public function getref(){
+
+       return $this->ref;
+
+    }
+
+    public function getmessage(){
+
+       return $this->message;
+
+    }
+
 
 
    public function _toString(){

@@ -10,6 +10,8 @@ class SmsConversionModel
 {
     private $client;
 
+
+
     public function __construct(){
 
         $this->client = new SoapClient('https://m2mconnect.ee.co.uk/orange-soap/services/MessageServiceByCountry?wsdl');
@@ -49,7 +51,22 @@ class SmsConversionModel
 
                 $m = new messageDisplay();
                 $m->init($m_number, $m_receiver, $m_time, $m_bearer, $m_ref, $m_message);
-                array_push($arr_messages, $m);
+                //array_push($arr_messages, $m);
+                $sender= $m->getSender();
+                $receiver= $m->getReceiver();
+                $time= $m->getReceiver();
+                $bearer= $m->getbearer();
+                $ref= $m->getref();
+                $message= $m->getmessage();
+
+                $display=(PHP_EOL. 'Source= ' . $sender . PHP_EOL
+                . "Receiver= " . $receiver . PHP_EOL
+                . "Time= " . $time . PHP_EOL
+                . "Bearer= " . $bearer . PHP_EOL
+                . "Ref= " . $ref . PHP_EOL
+                . "Message= " . $message);
+
+                //$arr_messages[$count++] = $display;
             }
         }
         else
