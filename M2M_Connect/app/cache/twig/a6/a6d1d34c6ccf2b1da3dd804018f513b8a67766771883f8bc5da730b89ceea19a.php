@@ -114,61 +114,6 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 60
         echo "
-
-
-
-    ";
-        // line 65
-        echo "      ";
-        // line 66
-        echo "      ";
-        // line 67
-        echo "        ";
-        // line 68
-        echo "        ";
-        // line 69
-        echo "          ";
-        // line 70
-        echo "
-          ";
-        // line 72
-        echo "          ";
-        // line 73
-        echo "          ";
-        // line 74
-        echo "          ";
-        // line 75
-        echo "          ";
-        // line 76
-        echo "          ";
-        // line 77
-        echo "          ";
-        // line 78
-        echo "          ";
-        // line 79
-        echo "          ";
-        // line 80
-        echo "          ";
-        // line 81
-        echo "          ";
-        // line 82
-        echo "          ";
-        // line 83
-        echo "          ";
-        // line 84
-        echo "          ";
-        // line 85
-        echo "        ";
-        // line 86
-        echo "      ";
-        // line 87
-        echo "    ";
-        // line 88
-        echo "  ";
-        // line 89
-        echo "
-
-
   <!--  FOOTER   -->
   <footer class=\"footer\">
     <h5><a href=\"index.html\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
@@ -193,7 +138,7 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
 
     public function getDebugInfo()
     {
-        return array (  169 => 89,  167 => 88,  165 => 87,  163 => 86,  161 => 85,  159 => 84,  157 => 83,  155 => 82,  153 => 81,  151 => 80,  149 => 79,  147 => 78,  145 => 77,  143 => 76,  141 => 75,  139 => 74,  137 => 73,  135 => 72,  132 => 70,  130 => 69,  128 => 68,  126 => 67,  124 => 66,  122 => 65,  116 => 60,  105 => 55,  100 => 53,  95 => 51,  90 => 49,  85 => 47,  80 => 45,  67 => 34,  63 => 33,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  116 => 60,  105 => 55,  100 => 53,  95 => 51,  90 => 49,  85 => 47,  80 => 45,  67 => 34,  63 => 33,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
