@@ -101,7 +101,7 @@ $app->post(
 
             $xml_parser->clear_data();
             $result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $clean_source, $clean_receiver, $clean_time, $clean_bearer, $clean_ref, $clean_message);
-            //var_dump($result);
+//            var_dump($result);
         }
 
         //$result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $c_arr_clean_message);
@@ -109,8 +109,8 @@ $app->post(
         //var_dump($result);
 
         $list_messages = $sms_model->getMessagesDB($db_handle,$sql_queries,$wrapper_mysql);
-        print_r($list_messages[0]);
-      // var_dump($list_messages);
+        print_r($list_messages[0]->getMessage());
+//       var_dump($list_messages);
 
 
 
