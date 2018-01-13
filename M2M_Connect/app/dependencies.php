@@ -45,12 +45,12 @@ $container['xml_parser'] = function ($container) {
     return $model;
 };
 
-//$container['messageDisplay'] = function ($container) {
-//    $class_path = $container->get('settings')['class_path'];
-//    require $class_path . 'messageDisplay.php';
-//    $messageDisplay = new messageDisplay();
-//    return $messageDisplay;
-//};
+$container['messageDisplay'] = function ($container) {
+    $class_path = $container->get('settings')['class_path'];
+    require $class_path . 'messageDisplay.php';
+    $messageDisplay = new messageDisplay();
+    return $messageDisplay;
+};
 
 
 $container['mysql_wrapper'] = function ($container) {

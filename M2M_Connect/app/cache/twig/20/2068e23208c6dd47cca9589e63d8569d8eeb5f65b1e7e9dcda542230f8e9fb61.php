@@ -1,14 +1,14 @@
 <?php
 
-/* display_messages.html.twig */
-class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0d7042 extends Twig_Template
+/* homepageform.html.twig */
+class __TwigTemplate_3c5ec3a5331e6237cebbaccc62484b16e3832f5af8c160729222fa7e96316a11 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("banner.html.twig", "display_messages.html.twig", 1);
+        $this->parent = $this->loadTemplate("banner.html.twig", "homepageform.html.twig", 1);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
         );
@@ -28,24 +28,32 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
     public function block_content($context, array $blocks = array())
     {
         // line 3
-        echo "  <div id=\"lg-form-container\">
-  <h2>";
+        echo "    <div id=\"page-content-div\">
+        <h2>";
         // line 4
         echo twig_escape_filter($this->env, ($context["page_heading_2"] ?? null), "html", null, true);
         echo "</h2>
-  <p>";
+        <p>";
         // line 5
         echo twig_escape_filter($this->env, ($context["page_text"] ?? null), "html", null, true);
         echo "</p>
-    <p>Messages</p>
-
-  </div>
+        <form action=\"";
+        // line 6
+        echo twig_escape_filter($this->env, ($context["action"] ?? null), "html", null, true);
+        echo "\" method=\"";
+        echo twig_escape_filter($this->env, ($context["method"] ?? null), "html", null, true);
+        echo "\">
+        <fieldset>
+            <input type=\"submit\" value=\"Display Unread Messages\">
+        </fieldset>
+        </form>
+    </div>
 ";
     }
 
     public function getTemplateName()
     {
-        return "display_messages.html.twig";
+        return "homepageform.html.twig";
     }
 
     public function isTraitable()
@@ -55,11 +63,11 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
 
     public function getDebugInfo()
     {
-        return array (  38 => 5,  34 => 4,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  42 => 6,  38 => 5,  34 => 4,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "display_messages.html.twig", "/Applications/MAMP/htdocs/SecureWebApp/M2M_Connect/app/templates/display_messages.html.twig");
+        return new Twig_Source("", "homepageform.html.twig", "/Applications/MAMP/htdocs/SecureWebApp/M2M_Connect/app/templates/homepageform.html.twig");
     }
 }
