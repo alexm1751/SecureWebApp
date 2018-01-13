@@ -35,15 +35,10 @@ class __TwigTemplate_30173636458ac224d0a5671bd718ef8df8c454cdc5be7f750121be76f9d
     public function block_banner($context, array $blocks = array())
     {
         // line 4
-        echo "<div id=\"banner-div\">
-    <h1>";
-        // line 5
-        echo twig_escape_filter($this->env, ($context["page_heading_1"] ?? null), "html", null, true);
-        echo "</h1>
-
-    <hr class=\"deepline\"/>
-</div>
-<div id=\"clear-div\"></div>
+        echo "    <header>
+        <h1><a href=\"index.html\" class=\"heading\">EE M2M SOAP Server Application</a></h1>
+        <h2><a href=\"index.html\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h2>
+    </header>
 ";
     }
 
@@ -59,7 +54,7 @@ class __TwigTemplate_30173636458ac224d0a5671bd718ef8df8c454cdc5be7f750121be76f9d
 
     public function getDebugInfo()
     {
-        return array (  41 => 5,  38 => 4,  35 => 3,  29 => 2,  11 => 1,);
+        return array (  38 => 4,  35 => 3,  29 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

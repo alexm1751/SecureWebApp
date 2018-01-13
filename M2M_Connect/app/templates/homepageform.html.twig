@@ -1,12 +1,73 @@
 {% extends 'banner.html.twig' %}
 {% block content %}
-    <div id="page-content-div">
-        <h2>{{ page_heading_2 }}</h2>
-        <p>{{ page_text }}</p>
-        <form action="{{ action }}" method="{{ method }}">
-        <fieldset>
-            <input type="submit" value="Display Unread Messages">
-        </fieldset>
-        </form>
-    </div>
+    <!--  NAVIGATION -->
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <!--      <li><a href="message.html">Account</a></li>-->
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+
+
+
+    <main class="main">
+        <!--    INTRO -->
+        <h3>Welcome</h3>
+        <h4>Please login or register below.</h4>
+
+        <!--    LOGIN  -->
+        <div class="forms">
+            <section class="login">
+                <form action="{{ action }}" method="{{ method }}">
+                    <fieldset>
+                        <h4>Login</h4>
+                        <label>Username</label>
+                        <input type="text" placeholder="e.g. smith@email.com" name="loguser" required>
+
+                        <label>Password</label>
+                        <input type="password" placeholder="Enter Password" name="logpass" required>
+
+                        <button type="submit" id="login">Login</button>
+                    </fieldset>
+                </form>
+            </section>
+
+
+            <!--    REGISTER  -->
+            <section class="register">
+                <!--    LOGIN  -->
+                <form method="get" action="message.html">
+                    <fieldset>
+                        <h4>Register</h4>
+                        <label>Full Name</label>
+                        <input type="text" placeholder="e.g. Joe Smith" name="reguser" required>
+
+                        <label>Email</label>
+                        <input type="text" placeholder="e.g. smith@email.com" name="reguser" required>
+
+                        <label>Password</label>
+                        <input type="password" placeholder="Enter Password" name="regpass" required>
+
+                        <label>Phone Number (no spaces)</label>
+                        <input type="text" placeholder="e.g 447123456789" name="reguser" required>
+
+                        <button type="button" id="register">Register</button>
+                    </fieldset>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!--  FOOTER   -->
+    <footer class="footer">
+        <h5><a href="index.html" class="heading">EE M2M SOAP Server Application</a></h5>
+        <h6><a href="index.html" class="heading">CTEC3110 Secure Web Application Development</a></h6>
+
+        <p id="footer"><a href="https://github.com/alexm1751/SecureWebApp">Created by Alex Mason, Dominic Bryan and Alistair Laughland</a></p>
+
+        <a href="https://validator.w3.org/"><img src="https://www.w3.org/Icons/valid-html401" alt="w3 HTML 4.01 / HTML DTD Validation" id="validation"></a>
+    </footer>
 {% endblock %}
