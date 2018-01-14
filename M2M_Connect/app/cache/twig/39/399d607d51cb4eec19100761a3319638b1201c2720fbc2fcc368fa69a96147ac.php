@@ -32,7 +32,7 @@ class __TwigTemplate_7ae8e95272da8b4e6d3f89107eed17e2d8c6d43d1cfe6d1286240824e38
     <nav>
         <ul class=\"menu\">
             <li><a href=\"index.php\" class=\"active\">Home</a></li>
-            
+
             <li><a href=\"about.html\">About</a></li>
         </ul>
     </nav>
