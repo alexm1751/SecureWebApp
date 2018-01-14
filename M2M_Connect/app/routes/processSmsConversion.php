@@ -39,7 +39,10 @@ $app->post(
         $arr_cleaned_auth = validation($validator, $arr_tainted_auth);
 
         $arr_hashed = hash_values($bcrypt_wrapper, $arr_cleaned_auth);
-        var_dump($arr_hashed);
+
+        //$query_pass = $sql_queries->check_user($arr_hashed);
+       // var_dump($query_pass);
+        //var_dump($arr_hashed);
 
         //insertAuth()
         /**<messagerx><sourcemsisdn>447817814149</sourcemsisdn><destinationmsisdn>447817814149</destinationmsisdn><receivedtime>12/01/2018 15:24:09</receivedtime><bearer>SMS</bearer><messageref>0</messageref><message>Hello5 </message></messagerx>**/
@@ -104,7 +107,11 @@ $app->post(
         //$result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $c_arr_clean_message);
 
         //var_dump($result);
+       // $sms_model->check_user_exists();
 
+        $register_details= $sms_model->check_db_register($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+
+        var_dump($register_details);
         $list_messages = $sms_model->getMessagesDB($db_handle,$sql_queries,$wrapper_mysql);
 //        print_r($list_messages[0]->getMessage());
 
@@ -143,3 +150,4 @@ function hash_values($p_bcrypt_wrapper, $p_arr_cleaned_params)
     $arr_encoded['number'] = $p_arr_cleaned_params['sanitised_number'];
     return $arr_encoded;
 }
+

@@ -6,9 +6,9 @@ SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `username` char(3) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `number` BIGINT(15) NOT NULL,
+  `username` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  `number` BIGINT(20) NOT NULL,
   PRIMARY KEY (`number`)
 ) ;
 
