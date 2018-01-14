@@ -72,36 +72,29 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
           <form action=\"registered.html\" method=\"get\">
             <h4>Message</h4>
 
-            <label>Message ID:</label>
-            <output>000</output>
             <label>Number:</label>
             <output>";
-            // line 45
+            // line 43
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getSender", array(), "method"), "html", null, true);
             echo "</output>
             <label>Receiver:</label>
             <output>";
-            // line 47
+            // line 45
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getReceiver", array(), "method"), "html", null, true);
             echo "</output>
             <label>Time:</label>
             <output>";
-            // line 49
+            // line 47
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getDate", array(), "method"), "html", null, true);
             echo "</output>
             <label>Bearer:</label>
             <output>";
-            // line 51
+            // line 49
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getBearer", array(), "method"), "html", null, true);
-            echo "</output>
-            <label>Ref:</label>
-            <output>";
-            // line 53
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getRef", array(), "method"), "html", null, true);
             echo "</output>
             <label>Message:</label>
             <textarea>";
-            // line 55
+            // line 51
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getMessage", array(), "method"), "html", null, true);
             echo "</textarea>
           </form>
@@ -112,7 +105,7 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 60
+        // line 56
         echo "
   <!--  FOOTER   -->
   <footer class=\"footer\">
@@ -138,7 +131,7 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
 
     public function getDebugInfo()
     {
-        return array (  116 => 60,  105 => 55,  100 => 53,  95 => 51,  90 => 49,  85 => 47,  80 => 45,  67 => 34,  63 => 33,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  109 => 56,  98 => 51,  93 => 49,  88 => 47,  83 => 45,  78 => 43,  67 => 34,  63 => 33,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
