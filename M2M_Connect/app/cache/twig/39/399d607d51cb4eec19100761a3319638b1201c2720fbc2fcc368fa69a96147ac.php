@@ -31,68 +31,24 @@ class __TwigTemplate_7ae8e95272da8b4e6d3f89107eed17e2d8c6d43d1cfe6d1286240824e38
         echo "    <!--  NAVIGATION -->
     <nav>
         <ul class=\"menu\">
-            <li><a href=\"index.html\" class=\"active\">Home</a></li>
-            <!--      <li><a href=\"message.html\">Account</a></li>-->
+            <li><a href=\"index.php\" class=\"active\">Home</a></li>
+            
             <li><a href=\"about.html\">About</a></li>
         </ul>
     </nav>
 
 
+    ";
+        // line 13
+        $this->loadTemplate("loginForm.html.twig", "homepageform.html.twig", 13)->display($context);
+        // line 14
+        echo "
+    ";
+        // line 15
+        $this->loadTemplate("registerForm.html.twig", "homepageform.html.twig", 15)->display($context);
+        // line 16
+        echo "
 
-
-    <main class=\"main\">
-        <!--    INTRO -->
-        <h3>Welcome</h3>
-        <h4>Please login or register below.</h4>
-
-        <!--    LOGIN  -->
-        <div class=\"forms\">
-            <section class=\"login\">
-                <form action=\"";
-        // line 23
-        echo twig_escape_filter($this->env, ($context["action"] ?? null), "html", null, true);
-        echo "\" method=\"";
-        echo twig_escape_filter($this->env, ($context["method"] ?? null), "html", null, true);
-        echo "\">
-                    <fieldset>
-                        <h4>Login</h4>
-                        <label>Username</label>
-                        <input type=\"text\" placeholder=\"e.g. smith@email.com\" name=\"loguser\" required>
-
-                        <label>Password</label>
-                        <input type=\"password\" placeholder=\"Enter Password\" name=\"logpass\" required>
-
-                        <button type=\"submit\" id=\"login\">Login</button>
-                    </fieldset>
-                </form>
-            </section>
-
-
-            <!--    REGISTER  -->
-            <section class=\"register\">
-                <!--    LOGIN  -->
-                <form method=\"get\" action=\"message.html\">
-                    <fieldset>
-                        <h4>Register</h4>
-                        <label>Full Name</label>
-                        <input type=\"text\" placeholder=\"e.g. Joe Smith\" name=\"reguser\" required>
-
-                        <label>Email</label>
-                        <input type=\"text\" placeholder=\"e.g. smith@email.com\" name=\"reguser\" required>
-
-                        <label>Password</label>
-                        <input type=\"password\" placeholder=\"Enter Password\" name=\"regpass\" required>
-
-                        <label>Phone Number (no spaces)</label>
-                        <input type=\"text\" placeholder=\"e.g 447123456789\" name=\"reguser\" required>
-
-                        <button type=\"button\" id=\"register\">Register</button>
-                    </fieldset>
-                </form>
-            </section>
-
-        </div>
-    </main>
 
     <!--  FOOTER   -->
     <footer class=\"footer\">
@@ -118,7 +74,7 @@ class __TwigTemplate_7ae8e95272da8b4e6d3f89107eed17e2d8c6d43d1cfe6d1286240824e38
 
     public function getDebugInfo()
     {
-        return array (  53 => 23,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  50 => 16,  48 => 15,  45 => 14,  43 => 13,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
