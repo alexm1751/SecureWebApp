@@ -111,4 +111,16 @@ class SMSvalidator
 
 }
 
+    public function validateAuthString($value){
+
+        $tainted_Name = $value;
+        $clean_name = filter_var($tainted_Name, FILTER_SANITIZE_STRING);
+
+        if ($clean_name=== false) {
+            throw new Exception('nope');
+        }
+
+        return $clean_name;
+    }
+
 }
