@@ -7,18 +7,18 @@ header {
 }
 
 body {
-  font-family: Helvetica, Arial;
-  width: 1200px;
   margin: auto;
-  background: white;
+  width: 1200px;
   height: auto;
+  font-family: Helvetica, Arial;
+  background-color: white;
 }
 
 main {
-  background-color: #ededed;
-  padding: 0 0 20px 0;
   margin: 0;
+  padding: 0 0 20px 0;
   min-height: 650px;
+  background-color: #ededed;
 }
 
 #mainmessage {
@@ -34,24 +34,22 @@ section {
 }
 
 section.login {
+  float: left;
   margin: 15px 20px 20px 25px;
   padding: 40px;
   width: 467px;
   height: 400px;
   background-color: #4ca0ad;
-  float: left;
-  border: 4px;
-  border-color: white;
-  border-style: solid;
+  border: 4px solid white;
 }
 
 section.register {
+  float: right;
   margin: 15px 25px 20px 20px;
   padding: 40px;
   width: 467px;
   height: 400px;
   background-color: #4ca0ad;
-  float: right;
   border: 4px solid white;
 }
 
@@ -67,26 +65,26 @@ section.messages {
 }
 
 section.account {
-  width: 700px;
   margin: auto;
   margin-top: 40px;
   margin-bottom: 10px;
+  padding: 10px;
+  width: 700px;
   height: auto;
   min-height: 240px;
   background-color: whitesmoke;
-  padding: 10px;
   border: 4px solid white;
 }
 
 
-/*messages*/
+/* MESSAGES */
 
 div.container {
   height: 100px;
 }
 
 header {
-  background-color: #f4f5fc;
+  background-color: #f4f5f7;
   border-top: 6px solid #337983;
   box-shadow: inset 0px 7px 3px -4px rgba(50, 50, 50, 0.25);
 }
@@ -133,50 +131,31 @@ h4 {
 
 .forms h4 {
   padding: 0 0 20px 0;
-  font-size: 1.15em;
   color: white;
+  font-size: 1.15em;
 }
 
 .account h4,
 .account label {
   color: darkslategray;
+  text-align: center;
   font-weight: bold;
-  text-align: center;
-}
-
-.account label {
-  margin: auto;
-  margin-top: 10px;
-}
-
-.account output {
-  color: #337983;
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-#messageform {
-  margin: auto;
-  padding: 50px 0 25px 0;
-  width: 60%;
-  color: darkslategray;
-  text-align: center;
 }
 
 h5 {
   margin: 0;
   padding: 40px 0 3px 0;
-  font-size: 1.2em;
-  text-align: center;
   color: #337983;
+  text-align: center;
+  font-size: 1.2em;
 }
 
 h6 {
   margin: 0;
   padding: 3px 0 10px 0;
-  font-size: 1em;
-  text-align: center;
   color: grey;
+  text-align: center;
+  font-size: 1em;
 }
 
 
@@ -204,6 +183,14 @@ a.heading {
   width: 60%;
 }
 
+#messageform {
+  margin: auto;
+  padding: 50px 0 25px 0;
+  width: 60%;
+  color: darkslategray;
+  text-align: center;
+}
+
 
 /* FORM */
 
@@ -213,6 +200,12 @@ label {
   width: 100%;
   float: left;
   color: white;
+  opacity: 10%;
+}
+
+.account label {
+  margin: auto;
+  margin-top: 10px;
 }
 
 .messages label {
@@ -223,10 +216,22 @@ label {
 
 output {
   margin: 5px 0 0;
+  padding: 3px;
+  border-radius: 5px;
   display: inline-block;
   width: 100%;
   float: right;
   color: #fbe546;
+}
+
+.account output {
+  padding-bottom: 20px;
+  color: #337983;
+  text-align: center;
+}
+
+.messages output:hover {
+  background-color: #51aebc;
 }
 
 input {
@@ -240,23 +245,40 @@ input {
   outline: none;
 }
 
+textarea {
+  margin: 10px 0 10px 0;
+  padding: 5px;
+  min-width: 455px;
+  max-width: 455px;
+  max-height: 300px;
+  min-height: 100px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+fieldset {
+  border: none;
+}
+
+
+/* BUTTONS*/
+
 button {
   padding: 10px;
   display: inline-block;
   float: right;
   width: 130px;
-  font-size: 16px;
-  background: #337983;
-  border: 3px solid;
-  border-color: white;
   color: white;
+  font-size: 16px;
+  background-color: #37838e;
+  border: 2px solid #eeeeee;
   border-radius: 5px;
   outline: none;
   box-shadow: 1px 1px #888888;
 }
 
 button:hover {
-  background-color: #2daf8e;
+  background-color: #349aaa;
   transform: translateX(-1px) translateY(-1px);
   box-shadow: 2px 2px #aaaaaa;
 }
@@ -275,47 +297,34 @@ button#logout {
   top: 15px;
   padding: 6px;
   width: 85px;
+  color: black;
   background-color: white;
   border: 2px solid;
-  border-color: black;
-  color: black;
+  border-color: darkslategray;
 }
 
 button#logout:hover {
-  background: #fbe546;
+  color: darkred;
+  font-weight: 500;
+  border-color: darkred;
 }
 
 button.messages {
-  padding: 10px;
   position: absolute;
-  width: 158px;
-  background: 337983;
-  /*  border: 2px solid;*/
-  border-color: white;
-  color: white;
   margin: 5px 10px 10px 440px;
+  padding: 10px;
+  width: 158px;
+  color: white;
+  letter-spacing: 1px;
+  border: 2px solid #eeeeee;
 }
 
 button.messages:hover {
-  background: grey;
+  background-color: #429daa;
 }
 
 button#mymessage {
   margin-left: 610px;
-}
-
-textarea {
-  margin: 10px 0 10px 0;
-  padding: 5px;
-  width: 445px;
-  line-height: 1;
-  font-size: 14px;
-  max-height: 200px;
-  min-height: 100px;
-}
-
-fieldset {
-  border: none;
 }
 
 
@@ -324,21 +333,21 @@ fieldset {
 nav {
   margin: 0 !important;
   padding: 0;
-  background: #929fad;
+  background-color: #ffffff;
   border-top: 3px solid #337983;
 }
 
 ul {
+  position: relative;
   margin: 0;
   padding: 0;
   list-style-type: none;
-  position: relative;
 }
 
 nav a {
   display: block;
   padding: 12px 24px;
-  color: #ffffff;
+  color: darkslategray;
   font-size: 16px;
   text-decoration: none;
   font-weight: 500;
@@ -348,18 +357,20 @@ nav a {
 
 a.active {
   color: #ffffff;
-  background: #337983;
+  font-weight: 530;
+  background-color: #337983;
 }
 
 nav ul li {
-  margin: 0px;
   display: inline-block;
   float: left;
-  background-color: #929fad;
+  margin: 0px;
+  background-color: #fff;
 }
 
 nav a:hover {
-  background-color: #6d6d6d;
+  color: white;
+  background-color: #429daa;
 }
 
 nav:after {
@@ -368,12 +379,8 @@ nav:after {
   clear: both;
 }
 
-#validation {
-  padding: 4px 0 10px 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
+/* FOOTER */
 
 .footer p {
   display: block;
@@ -383,4 +390,11 @@ nav:after {
 
 .footer p a {
   text-decoration: none;
+}
+
+#validation {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px 0 10px 0;
 }
