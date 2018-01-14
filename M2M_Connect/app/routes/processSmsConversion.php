@@ -34,11 +34,14 @@ $app->post(
         /**<messagerx><sourcemsisdn>447817814149</sourcemsisdn><destinationmsisdn>447817814149</destinationmsisdn><receivedtime>12/01/2018 15:24:09</receivedtime><bearer>SMS</bearer><messageref>0</messageref><message>Hello5 </message></messagerx>**/
 
         $arr_tainted_messages = $sms_model->getUnreadMessages();
+        //$arr_tainted_messages = $sms_model->readMessages();
+
+        //Changed to Peek Messages due to readMessages removes other peoples messages.
 
 
         //var_dump($arr_tainted_messages);
         foreach($arr_tainted_messages as $tainted_message){
-            //var_dump($tainted_message);
+           // var_dump($tainted_message);
 
             //Uncomment and use var below this comment to test for passing Null
             //$tainted_message = null;

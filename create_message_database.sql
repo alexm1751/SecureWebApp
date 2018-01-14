@@ -8,9 +8,11 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `username` char(3) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `number` int(15) NOT NULL,
+  `number` BIGINT(15) NOT NULL,
   PRIMARY KEY (`number`)
 ) ;
+
+
 
 # -- ----------------------------
 # -- Table structure for `error_log`
@@ -27,9 +29,9 @@ CREATE TABLE `user` (
 
 DROP TABLE IF EXISTS `message_content`;
 CREATE TABLE `message_content` (
-  `message_id` INT(100) NOT NULL AUTO_INCREMENT,
-  `number` BIGINT(100) NULL,
-  `receiver` BIGINT(100)  NULL,
+  `message_id` BIGINT(15) NOT NULL AUTO_INCREMENT,
+  `number` BIGINT(15) NULL,
+  `receiver` BIGINT(15)  NULL,
   `time` varchar(20) NOT NULL,
   `bearer` VARCHAR(10) NOT NULL,
   `ref` int(20) NOT NULL,
