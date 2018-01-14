@@ -21,13 +21,17 @@ class SmsConversionModel
 
     public function getUnreadMessages()
     {
-        return $this->client->peekMessages('17alexmason','Fendervox50', 50);
+        return $this->client->peekMessages('17alexmason','Fendervox50', 1000);
     }
 
     public function getDeliveryReports()
     {
-        return $this->client->getDeliveryReports('17alexmason','Fendervox50', 50);
+        return $this->client->getDeliveryReports('17alexmason','Fendervox50', 1000);
 
+    }
+    public  function readMessages()
+    {
+        return $this->client->readMessages('17alexmason','Fendervox50', 1000);
     }
 
 
