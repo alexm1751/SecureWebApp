@@ -12,7 +12,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 $app->post(
     '/processsmsconversion',
     function(Request $request, Response $response) use ($app)  {
-        var_dump($request->getParsedBody());
+
 
         $c_arr_clean_message = [];
 
@@ -28,9 +28,20 @@ $app->post(
 
         $wrapper_mysql = $this->get('mysql_wrapper');
 
+        $bcrypt_wrapper = $this->get('bcrypt_wrapper');
+
         $message_display = $this->get('messageDisplay');
 
 
+        $arr_tainted_auth = $request->getParsedBody();
+
+
+        $arr_cleaned_auth = validation($validator, $arr_tainted_auth);
+
+        $arr_hashed = hash_values($bcrypt_wrapper, $arr_cleaned_auth);
+        var_dump($arr_hashed);
+
+        //insertAuth()
         /**<messagerx><sourcemsisdn>447817814149</sourcemsisdn><destinationmsisdn>447817814149</destinationmsisdn><receivedtime>12/01/2018 15:24:09</receivedtime><bearer>SMS</bearer><messageref>0</messageref><message>Hello5 </message></messagerx>**/
 
         $arr_tainted_messages = $sms_model->getUnreadMessages();
@@ -111,3 +122,24 @@ $app->post(
 
             ]);
     });
+
+function validation($p_validator, $p_arr_tainted_params)
+{
+    $arr_cleaned_params = [];
+    $tainted_username = $p_arr_tainted_params['reguser'];
+    $tainted_number = $p_arr_tainted_params['regnumber'];
+
+    $arr_cleaned_params['password'] = $p_arr_tainted_params['regpass'];
+    $arr_cleaned_params['sanitised_username'] = $p_validator->validateAuthString($tainted_username);
+    $arr_cleaned_params['sanitised_number'] = $p_validator->validateAuthString($tainted_number);
+    return $arr_cleaned_params;
+}
+
+function hash_values($p_bcrypt_wrapper, $p_arr_cleaned_params)
+{
+    $arr_encoded = [];
+    $arr_encoded['hashed_password'] = $p_bcrypt_wrapper->create_hashed_password($p_arr_cleaned_params['password']);
+    $arr_encoded['username'] = $p_arr_cleaned_params['sanitised_username'];
+    $arr_encoded['number'] = $p_arr_cleaned_params['sanitised_number'];
+    return $arr_encoded;
+}

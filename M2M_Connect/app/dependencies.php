@@ -67,6 +67,13 @@ $container['sql_queries'] = function ($container) {
     return $sql_queries;
 };
 
+$container['bcrypt_wrapper'] = function ($container) {
+    $class_path = $container->get('settings')['class_path'];
+    require $class_path . 'BcryptWrapper.php';
+    $wrapper = new BcryptWrapper();
+    return $wrapper;
+};
+
 $container['dbase'] = function ($container) {
 
     $db_conf = $container['settings']['pdo'];
