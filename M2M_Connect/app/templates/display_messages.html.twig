@@ -39,8 +39,6 @@
           <form action="registered.html" method="get">
             <h4>Message</h4>
 
-            <label>Message ID:</label>
-            <output>000</output>
             <label>Number:</label>
             <output>{{ message.getSender() }}</output>
             <label>Receiver:</label>
@@ -49,8 +47,6 @@
             <output>{{ message.getDate() }}</output>
             <label>Bearer:</label>
             <output>{{ message.getBearer() }}</output>
-            <label>Ref:</label>
-            <output>{{ message.getRef() }}</output>
             <label>Message:</label>
             <textarea>{{ message.getMessage() }}</textarea>
           </form>
