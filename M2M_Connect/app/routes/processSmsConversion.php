@@ -12,7 +12,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 $app->post(
     '/processsmsconversion',
     function(Request $request, Response $response) use ($app)  {
-
+        var_dump($request->getParsedBody());
 
         $c_arr_clean_message = [];
 
