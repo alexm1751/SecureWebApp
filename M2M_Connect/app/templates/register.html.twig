@@ -1,0 +1,39 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+    <!--  NAVIGATION -->
+    <nav>
+        <ul class="menu">
+            <li><a href="index.php" class="active">Home</a></li>
+
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <form action="index.html" method="get">
+        <button type="submit" id="logout">Logout</button>
+        <h3>Hello, Barry!</h3>
+        <h4>Select below the messages you would like to view: all messages or your own messages.</h4>
+    </form>
+    <div class="container">
+        <form action="{{ action }}" method="{{ method }}">
+            <p>View messages:</p>
+            <button type="submit" class="messages" id="allmessage" autofocus>ALL MESSAGES</button>
+            <button type="submit" class="messages" id="mymessage">MY MESSAGES</button>
+        </form>
+
+        {#<input type="button" value="Go Back From Whence You Came!" onclick="history.back(-1)" />#}
+    </div>
+
+
+
+
+    <!--  FOOTER   -->
+    <footer class="footer">
+        <h5><a href="index.html" class="heading">EE M2M SOAP Server Application</a></h5>
+        <h6><a href="index.html" class="heading">CTEC3110 Secure Web Application Development</a></h6>
+
+        <p id="footer"><a href="https://github.com/alexm1751/SecureWebApp">Created by Alex Mason, Dominic Bryan and Alistair Laughland</a></p>
+
+        <a href="https://validator.w3.org/"><img src="https://www.w3.org/Icons/valid-html401" alt="w3 HTML 4.01 / HTML DTD Validation" id="validation"></a>
+    </footer>
+{% endblock %}
