@@ -28,7 +28,7 @@ define('LANDING_PAGE', $_SERVER['SCRIPT_NAME']);
 
 define ('BCRYPT_ALGO', PASSWORD_DEFAULT);
 define ('BCRYPT_COST', 12);
-
+$m_max_length_password = 25;
 
 
 $settings = [

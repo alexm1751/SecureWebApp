@@ -7,7 +7,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `username` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `number` BIGINT(30) NOT NULL,
   PRIMARY KEY (`number`)
 ) ;
