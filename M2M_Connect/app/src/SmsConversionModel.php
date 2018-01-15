@@ -86,7 +86,6 @@ class SmsConversionModel
         $numbers = $p_wrapper_mysql->count_rows();
 
         if ($numbers > 0) {
-            echo('User Number already exists!');
             throw new Exception('User Number already exists!');
             return false;
         } else {
@@ -96,8 +95,6 @@ class SmsConversionModel
             $query_string = $p_sql_queries->set_userDetails($username,$password,$number);
             $p_wrapper_mysql->set_db_handle($p_db_handle);
             $p_wrapper_mysql->safe_query($query_string);
-            echo ('User Registered');
-           // var_dump($query_string);
             return true;
         }
     }
@@ -116,20 +113,14 @@ class SmsConversionModel
         $password = $stored_hash['password'];
         $name_entered = $p_wrapper_mysql->count_rows();
         if ($name_entered <= 0) {
-            echo('Issue With Number or Password');
             throw new Exception('Issue with Number or Password');
             return false;
         }
-        //var_dump($hashed_pass);
-        //var_dump($stored_hash);
-        //array password
         if (password_verify($hashed_pass, $password) != true){
-            echo('Issue with Number or Password');
             throw new Exception('Issue with Number or Password');
             return false;
         }
          else {
-            echo('Welcome');
             return true;
         }
 
