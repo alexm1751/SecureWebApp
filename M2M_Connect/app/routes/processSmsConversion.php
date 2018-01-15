@@ -137,6 +137,7 @@ $app->map(['GET', 'POST'],
             [
                 'css_path' => CSS_PATH,
                 'landing_page' => LANDING_PAGE,
+                'register_page' => REGISTER_PAGE,
                 'initial_input_box_value' => null,
                 'page_title' => APP_NAME,
                 'page_heading_1' => APP_NAME,

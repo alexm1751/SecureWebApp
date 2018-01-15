@@ -54,7 +54,7 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
         try {
             $login_details= $sms_model->check_db_login($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
             $username = $sms_model->getUserName($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
-            
+
         } catch (Exception $e) {
             return $response->withRedirect('/SecureWebApp/M2M_Connect_public/');
         }
@@ -86,14 +86,23 @@ function validation($p_validator, $p_arr_tainted_params)
         $tainted_number = $p_arr_tainted_params['regnumber'];
 
         $arr_cleaned_params['password'] = $p_arr_tainted_params['regpass'];
-        $arr_cleaned_params['sanitised_username'] = $p_validator->validateAuthString($tainted_username);
-        $arr_cleaned_params['sanitised_number'] = $p_validator->validateAuthString($tainted_number);
+        try {
+            $arr_cleaned_params['sanitised_username'] = $p_validator->validateAuthString($tainted_username);
+            $arr_cleaned_params['sanitised_number'] = $p_validator->validate_source($tainted_number);
+        } catch (Exception $e) {
+            echo $e;
+        }
+
         return $arr_cleaned_params;
     }
     else {
         $tainted_number = $p_arr_tainted_params['loguser'];
-        $arr_cleaned_params['password'] = $p_arr_tainted_params['logpass'];
-        $arr_cleaned_params['sanitised_number'] = $p_validator->validateAuthString($tainted_number);
+        try {
+            $arr_cleaned_params['password'] = $p_arr_tainted_params['logpass'];
+            $arr_cleaned_params['sanitised_number'] = $p_validator->validate_source($tainted_number);
+        } catch (Exception $e) {
+            echo $e;
+        }
         return $arr_cleaned_params;
     }
 

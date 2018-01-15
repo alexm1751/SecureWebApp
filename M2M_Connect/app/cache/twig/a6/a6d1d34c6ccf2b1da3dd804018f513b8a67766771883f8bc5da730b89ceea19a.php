@@ -37,7 +37,7 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
         echo "\">Home</a></li>
       <li><a href=\"";
         // line 7
-        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo twig_escape_filter($this->env, ($context["register_page"] ?? null), "html", null, true);
         echo "\" class=\"active\">Account</a></li>
     </ul>
   </nav>
