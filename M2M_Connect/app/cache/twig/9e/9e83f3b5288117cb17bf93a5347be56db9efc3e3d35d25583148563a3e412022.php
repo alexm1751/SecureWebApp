@@ -36,10 +36,7 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
         echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
         echo "\" class=\"active\">Home</a></li>
 
-            <li><a href=\"";
-        // line 8
-        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
-        echo "\">About</a></li>
+
         </ul>
     </nav>
 
@@ -103,7 +100,7 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
 
     public function getDebugInfo()
     {
-        return array (  84 => 33,  80 => 32,  71 => 25,  60 => 18,  53 => 14,  48 => 12,  41 => 8,  36 => 6,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  81 => 33,  77 => 32,  68 => 25,  57 => 18,  50 => 14,  45 => 12,  36 => 6,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

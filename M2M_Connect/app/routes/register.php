@@ -36,7 +36,6 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
 
     $arr_cleaned_auth = validation($validator, $arr_tainted_auth);
 
-//    var_dump($arr_cleaned_auth);
     $arr_hashed = hash_values($bcrypt_wrapper, $arr_cleaned_auth);
 
 
