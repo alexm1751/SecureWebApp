@@ -12,7 +12,43 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 $app->map(['GET', 'POST'], '/register', function(Request $request, Response $response) use ($app) {
 
-    var_dump($request->getParsedBody());
+    $c_arr_clean_message = [];
+
+    $xml_parser = $this->get('xml_parser');
+
+    $validator = $this->get('validator');
+
+    $sms_model = $this->get('sms_model');
+
+    $db_handle = $this->get('dbase');
+
+    $sql_queries = $this->get('sql_queries');
+
+    $wrapper_mysql = $this->get('mysql_wrapper');
+
+    $bcrypt_wrapper = $this->get('bcrypt_wrapper');
+
+
+    $arr_tainted_auth = $request->getParsedBody();
+
+
+
+
+    $arr_cleaned_auth = validation($validator, $arr_tainted_auth);
+
+    //var_dump($arr_tainted_auth);
+    $arr_hashed = hash_values($bcrypt_wrapper, $arr_cleaned_auth);
+
+
+
+    if(sizeof($arr_hashed) >2){
+        $register_details= $sms_model->check_db_register($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+    }
+    else{
+        $login_details= $sms_model->check_db_login($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+
+    }
+
     if (false) {
         return $response->withRedirect('/SecureWebApp/M2M_Connect_public/');
     }
@@ -28,3 +64,43 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
             'action' => 'processsmsconversion',
         ]);
 })->setName('register');
+
+function validation($p_validator, $p_arr_tainted_params)
+{
+
+    $arr_cleaned_params = [];
+
+    if (sizeof($p_arr_tainted_params) > 2 ){
+        $tainted_username = $p_arr_tainted_params['reguser'];
+        $tainted_number = $p_arr_tainted_params['regnumber'];
+
+        $arr_cleaned_params['password'] = $p_arr_tainted_params['regpass'];
+        $arr_cleaned_params['sanitised_username'] = $p_validator->validateAuthString($tainted_username);
+        $arr_cleaned_params['sanitised_number'] = $p_validator->validateAuthString($tainted_number);
+        return $arr_cleaned_params;
+    }
+    else {
+        $tainted_number = $p_arr_tainted_params['loguser'];
+        $arr_cleaned_params['password'] = $p_arr_tainted_params['logpass'];
+        $arr_cleaned_params['sanitised_number'] = $p_validator->validateAuthString($tainted_number);
+        return $arr_cleaned_params;
+    }
+
+}
+
+function hash_values($p_bcrypt_wrapper, $p_arr_cleaned_params)
+{
+    $arr_encoded = [];
+
+    if (sizeof($p_arr_cleaned_params) > 2){
+        $arr_encoded['hashed_password'] = $p_bcrypt_wrapper->create_hashed_password($p_arr_cleaned_params['password']);
+        $arr_encoded['username'] = $p_arr_cleaned_params['sanitised_username'];
+        $arr_encoded['number'] = $p_arr_cleaned_params['sanitised_number'];
+        return $arr_encoded;
+    }
+    else {
+        $arr_encoded['hashed_password'] = $p_arr_cleaned_params['password'];
+        $arr_encoded['number'] = $p_arr_cleaned_params['sanitised_number'];
+        return $arr_encoded;
+    }
+}

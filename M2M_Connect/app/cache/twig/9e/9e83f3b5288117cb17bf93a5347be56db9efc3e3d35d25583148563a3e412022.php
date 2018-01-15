@@ -54,8 +54,9 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
             <button type=\"submit\" class=\"messages\" id=\"mymessage\">MY MESSAGES</button>
         </form>
 
-        <input type=\"button\" value=\"Go Back From Whence You Came!\" onclick=\"history.back(-1)\" />
-    </div>
+        ";
+        // line 25
+        echo "    </div>
 
 
 
@@ -84,7 +85,7 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
 
     public function getDebugInfo()
     {
-        return array (  48 => 18,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  59 => 25,  48 => 18,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
