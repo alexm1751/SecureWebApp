@@ -36,10 +36,16 @@ $app->post(
         $arr_tainted_auth = $request->getParsedBody();
 
 
+
+
         $arr_cleaned_auth = validation($validator, $arr_tainted_auth);
 
+        //var_dump($arr_tainted_auth);
         $arr_hashed = hash_values($bcrypt_wrapper, $arr_cleaned_auth);
-        var_dump($arr_hashed);
+
+        //$query_pass = $sql_queries->check_user($arr_hashed);
+       // var_dump($query_pass);
+        //var_dump($arr_hashed);
 
         //insertAuth()
         /**<messagerx><sourcemsisdn>447817814149</sourcemsisdn><destinationmsisdn>447817814149</destinationmsisdn><receivedtime>12/01/2018 15:24:09</receivedtime><bearer>SMS</bearer><messageref>0</messageref><message>Hello5 </message></messagerx>**/
@@ -104,7 +110,19 @@ $app->post(
         //$result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $c_arr_clean_message);
 
         //var_dump($result);
+       // $sms_model->check_user_exists();
 
+
+        if(sizeof($arr_hashed) >2){
+            $register_details= $sms_model->check_db_register($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+        }
+        else{
+            $login_details= $sms_model->check_db_login($db_handle,$sql_queries,$wrapper_mysql,$bcrypt_wrapper, $arr_hashed);
+
+        }
+
+
+        //var_dump($register_details);
         $list_messages = $sms_model->getMessagesDB($db_handle,$sql_queries,$wrapper_mysql);
 //        print_r($list_messages[0]->getMessage());
 
@@ -118,28 +136,48 @@ $app->post(
                 'initial_input_box_value' => null,
                 'page_title' => APP_NAME,
                 'page_heading_1' => APP_NAME,
-                'message_array' => $list_messages,
+                //'message_array' => $list_messages,
 
             ]);
     });
 
 function validation($p_validator, $p_arr_tainted_params)
 {
-    $arr_cleaned_params = [];
-    $tainted_username = $p_arr_tainted_params['reguser'];
-    $tainted_number = $p_arr_tainted_params['regnumber'];
 
-    $arr_cleaned_params['password'] = $p_arr_tainted_params['regpass'];
-    $arr_cleaned_params['sanitised_username'] = $p_validator->validateAuthString($tainted_username);
-    $arr_cleaned_params['sanitised_number'] = $p_validator->validateAuthString($tainted_number);
-    return $arr_cleaned_params;
+    $arr_cleaned_params = [];
+
+    if (sizeof($p_arr_tainted_params) > 2 ){
+        $tainted_username = $p_arr_tainted_params['reguser'];
+        $tainted_number = $p_arr_tainted_params['regnumber'];
+
+        $arr_cleaned_params['password'] = $p_arr_tainted_params['regpass'];
+        $arr_cleaned_params['sanitised_username'] = $p_validator->validateAuthString($tainted_username);
+        $arr_cleaned_params['sanitised_number'] = $p_validator->validateAuthString($tainted_number);
+        return $arr_cleaned_params;
+    }
+    else {
+        $tainted_number = $p_arr_tainted_params['loguser'];
+        $arr_cleaned_params['password'] = $p_arr_tainted_params['logpass'];
+        $arr_cleaned_params['sanitised_number'] = $p_validator->validateAuthString($tainted_number);
+        return $arr_cleaned_params;
+    }
+
 }
 
 function hash_values($p_bcrypt_wrapper, $p_arr_cleaned_params)
 {
     $arr_encoded = [];
-    $arr_encoded['hashed_password'] = $p_bcrypt_wrapper->create_hashed_password($p_arr_cleaned_params['password']);
-    $arr_encoded['username'] = $p_arr_cleaned_params['sanitised_username'];
-    $arr_encoded['number'] = $p_arr_cleaned_params['sanitised_number'];
-    return $arr_encoded;
+
+    if (sizeof($p_arr_cleaned_params) > 2){
+        $arr_encoded['hashed_password'] = $p_bcrypt_wrapper->create_hashed_password($p_arr_cleaned_params['password']);
+        $arr_encoded['username'] = $p_arr_cleaned_params['sanitised_username'];
+        $arr_encoded['number'] = $p_arr_cleaned_params['sanitised_number'];
+        return $arr_encoded;
+    }
+    else {
+        $arr_encoded['hashed_password'] = $p_bcrypt_wrapper->create_hashed_password($p_arr_cleaned_params['password']);
+        $arr_encoded['number'] = $p_arr_cleaned_params['sanitised_number'];
+        return $arr_encoded;
+    }
 }
+

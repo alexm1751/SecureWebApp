@@ -42,7 +42,7 @@ class SQLQueries
 
     public static function set_userDetails($username, $password, $number)
     {
-        $m_sql_query_string  = "INSERT INTO message_content (username, password, number) ";
+        $m_sql_query_string  = "INSERT INTO user (username, password, number) ";
         $m_sql_query_string .= "VALUES('$username' ,'$password', $number)";
         return $m_sql_query_string;
 }
@@ -51,6 +51,23 @@ class SQLQueries
         $m_sql_query_string  = "SELECT number, receiver, time, bearer, ref, message ";
         $m_sql_query_string .= "FROM message_content ";
         $m_sql_query_string .= "WHERE number =  '$current_user'";
+        return $m_sql_query_string;
+    }
+
+    public static function check_user_exists($number)
+    {
+        $m_sql_query_string  = "SELECT number ";
+        $m_sql_query_string .= "FROM user ";
+        $m_sql_query_string .= "WHERE number =  $number";
+       // var_dump($m_sql_query_string);
+        return $m_sql_query_string;
+
+    }
+
+    public static function check_password($number){
+        $m_sql_query_string  = "SELECT password ";
+        $m_sql_query_string .= "FROM user ";
+        $m_sql_query_string .= "WHERE number =  '$number'";
         return $m_sql_query_string;
     }
 
