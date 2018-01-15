@@ -118,7 +118,7 @@ $app->map(['GET', 'POST'],
             $register_details= $sms_model->check_db_register($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
         }
         else{
-            $login_details= $sms_model->check_db_login($db_handle,$sql_queries,$wrapper_mysql,$bcrypt_wrapper, $arr_hashed);
+            $login_details= $sms_model->check_db_login($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
 
         }
 
@@ -176,7 +176,7 @@ function hash_values($p_bcrypt_wrapper, $p_arr_cleaned_params)
         return $arr_encoded;
     }
     else {
-        $arr_encoded['hashed_password'] = $p_bcrypt_wrapper->create_hashed_password($p_arr_cleaned_params['password']);
+        $arr_encoded['hashed_password'] = $p_arr_cleaned_params['password'];
         $arr_encoded['number'] = $p_arr_cleaned_params['sanitised_number'];
         return $arr_encoded;
     }

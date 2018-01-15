@@ -134,23 +134,27 @@ class SmsConversionModel
         }
     }
 
-    public function check_db_login($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $bcrypt_wrapper, $arr_clean_auth)
+    public function check_db_login($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $arr_clean_auth)
     {
 
         $number = $arr_clean_auth['number'];
         $hashed_pass = $arr_clean_auth['hashed_password'];
+
         $query_name = $p_sql_queries->check_password($number);
 
         $p_wrapper_mysql->set_db_handle($p_db_handle);
-        $stored_hash = $p_wrapper_mysql->safe_query($query_name);
-        //var_dump($stored_hash);
+        $p_wrapper_mysql->safe_query($query_name);
+        $stored_hash = $p_wrapper_mysql->safe_fetch_array();
+        $password = $stored_hash['password'];
         $name_entered = $p_wrapper_mysql->count_rows();
         if ($name_entered <= 0) {
             echo('Issue With Number or Password');
             return false;
         }
+        //var_dump($hashed_pass);
+        //var_dump($stored_hash);
         //array password
-        if ($bcrypt_wrapper->authenticate_password($hashed_pass, $stored_hash) != true){
+        if (password_verify($hashed_pass, $password) != true){
             echo('Issue with Number or Password');
             return false;
         }

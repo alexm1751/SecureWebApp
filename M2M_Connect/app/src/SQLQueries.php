@@ -59,7 +59,7 @@ class SQLQueries
         $m_sql_query_string  = "SELECT number ";
         $m_sql_query_string .= "FROM user ";
         $m_sql_query_string .= "WHERE number =  $number";
-       // var_dump($m_sql_query_string);
+        var_dump($m_sql_query_string);
         return $m_sql_query_string;
 
     }
@@ -67,7 +67,8 @@ class SQLQueries
     public static function check_password($number){
         $m_sql_query_string  = "SELECT password ";
         $m_sql_query_string .= "FROM user ";
-        $m_sql_query_string .= "WHERE number =  '$number'";
+        $m_sql_query_string .= "WHERE number =  $number";
+        //var_dump($m_sql_query_string);
         return $m_sql_query_string;
     }
 
