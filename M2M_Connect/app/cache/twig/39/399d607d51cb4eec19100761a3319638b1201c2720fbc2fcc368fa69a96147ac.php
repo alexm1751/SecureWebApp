@@ -31,7 +31,10 @@ class __TwigTemplate_7ae8e95272da8b4e6d3f89107eed17e2d8c6d43d1cfe6d1286240824e38
         echo "    <!--  NAVIGATION -->
     <nav>
         <ul class=\"menu\">
-            <li><a href=\"index.php\" class=\"active\">Home</a></li>
+            <li><a href=\"";
+        // line 6
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"active\">Home</a></li>
         </ul>
     </nav>
 
@@ -49,8 +52,14 @@ class __TwigTemplate_7ae8e95272da8b4e6d3f89107eed17e2d8c6d43d1cfe6d1286240824e38
 
     <!--  FOOTER   -->
     <footer class=\"footer\">
-        <h5><a href=\"index.html\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
-        <h6><a href=\"index.html\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h6>
+        <h5><a href=\"";
+        // line 18
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
+        <h6><a href=\"";
+        // line 19
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h6>
 
         <p id=\"footer\"><a href=\"https://github.com/alexm1751/SecureWebApp\">Created by Alex Mason, Dominic Bryan and Alistair Laughland</a></p>
 
@@ -71,7 +80,7 @@ class __TwigTemplate_7ae8e95272da8b4e6d3f89107eed17e2d8c6d43d1cfe6d1286240824e38
 
     public function getDebugInfo()
     {
-        return array (  48 => 14,  46 => 13,  43 => 12,  41 => 11,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  61 => 19,  57 => 18,  51 => 14,  49 => 13,  46 => 12,  44 => 11,  36 => 6,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

@@ -25,6 +25,7 @@ $script_path = implode('/', $arr_script_filename) . '/';
 define('CSS_PATH', $css_path);
 define('APP_NAME', 'EE M2M Server - Homepage');
 define('LANDING_PAGE', $_SERVER['SCRIPT_NAME']);
+define('REGISTER_PAGE', $_SERVER['SCRIPT_NAME'].'/register');
 
 define ('BCRYPT_ALGO', PASSWORD_DEFAULT);
 define ('BCRYPT_COST', 12);
