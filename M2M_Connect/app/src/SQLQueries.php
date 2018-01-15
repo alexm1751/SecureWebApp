@@ -54,18 +54,20 @@ class SQLQueries
         return $m_sql_query_string;
     }
 
-    public static function check_user_exists($user)
+    public static function check_user_exists($number)
     {
-        $m_sql_query_string  = "SELECT username";
+        $m_sql_query_string  = "SELECT number ";
         $m_sql_query_string .= "FROM user ";
-        $m_sql_query_string .= "WHERE username =  '$user'";
+        $m_sql_query_string .= "WHERE number =  $number";
+       // var_dump($m_sql_query_string);
         return $m_sql_query_string;
+
     }
 
-    public static function check_password($user){
+    public static function check_password($number){
         $m_sql_query_string  = "SELECT password ";
         $m_sql_query_string .= "FROM user ";
-        $m_sql_query_string .= "WHERE username =  '$user'";
+        $m_sql_query_string .= "WHERE number =  '$number'";
         return $m_sql_query_string;
     }
 

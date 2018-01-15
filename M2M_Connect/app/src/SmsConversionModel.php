@@ -111,14 +111,15 @@ class SmsConversionModel
 
     public function check_db_register($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $arr_hash)
     {
-        $user_name= $arr_hash['username'];
-        $query_string = $p_sql_queries->check_user_exists($user_name);
-        $p_wrapper_mysql->set_db_handle($p_db_handle);
-        $p_wrapper_mysql->safe_query($query_string);
-        $number_of_users = $p_wrapper_mysql->count_rows();
+        $string_number= $arr_hash['number'];
 
-        if ($number_of_users > 0) {
-            echo('User Name already exists!');
+        $query_string = $p_sql_queries->check_user_exists($string_number);
+        $p_wrapper_mysql->safe_query($query_string);
+        $numbers = $p_wrapper_mysql->count_rows();
+        //var_dump($numbers);
+
+        if ($numbers > 0) {
+            echo('User Number already exists!');
             return false;
         } else {
             $username= $arr_hash['username'];
@@ -127,29 +128,33 @@ class SmsConversionModel
             $query_string = $p_sql_queries->set_userDetails($username,$password,$number);
             $p_wrapper_mysql->set_db_handle($p_db_handle);
             $p_wrapper_mysql->safe_query($query_string);
-            var_dump($query_string);
+            echo ('User Registered');
+           // var_dump($query_string);
             return true;
         }
     }
 
-    public function check_db_login($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $user_name, $hashed_pass)
+    public function check_db_login($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $bcrypt_wrapper, $arr_clean_auth)
     {
 
-        $query_name = $p_sql_queries->check_password($user_name);
+        $number = $arr_clean_auth['number'];
+        $hashed_pass = $arr_clean_auth['hashed_password'];
+        $query_name = $p_sql_queries->check_password($number);
 
         $p_wrapper_mysql->set_db_handle($p_db_handle);
         $stored_hash = $p_wrapper_mysql->safe_query($query_name);
-        var_dump($stored_hash);
+        //var_dump($stored_hash);
         $name_entered = $p_wrapper_mysql->count_rows();
         if ($name_entered <= 0) {
-            echo('Issue With UserName or Password');
+            echo('Issue With Number or Password');
             return false;
         }
         //array password
-        if ($hashed_pass != $stored_hash) {
-            echo('Issue with UserName or Password');
+        if ($bcrypt_wrapper->authenticate_password($hashed_pass, $stored_hash) != true){
+            echo('Issue with Number or Password');
             return false;
-        } else {
+        }
+         else {
             echo('Welcome');
             return true;
         }

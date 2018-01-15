@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `username` VARCHAR(100) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `number` BIGINT(20) NOT NULL,
+  `number` BIGINT(30) NOT NULL,
   PRIMARY KEY (`number`)
 ) ;
 
