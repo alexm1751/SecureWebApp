@@ -34,7 +34,12 @@ class SmsConversionModel
         return $this->client->readMessages('17alexmason','Fendervox50', 1000);
     }
 
-
+    /**Gets all messages from the database
+     * @param $p_db_handle Database handle
+     * @param $p_sql_queries SQL query as a string
+     * @param $p_wrapper_mysql Instance of MySQLWrapper
+     * @return array Array of message data
+     */
     public function getMessagesDB($p_db_handle, $p_sql_queries, $p_wrapper_mysql){
         $arr_messages = [];
         $query_string = $p_sql_queries->get_stored_messages();
@@ -66,17 +71,33 @@ class SmsConversionModel
 
     }
 
-
+    /**Inserts message objects into a database table
+     * @param $p_db_handle Database handle
+     * @param $p_sql_queries SQL query as a string
+     * @param $p_wrapper_mysql Instance of MySQLWrapper
+     * @param $number Phone number of sender
+     * @param $receiver Phone number of receiver
+     * @param $time Time message was sent
+     * @param $bearer Type of message sent
+     * @param $ref Reference for message
+     * @param $message Text content of message
+     */
     public function setMessagesDB($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $number,$receiver,$time,$bearer,$ref,$message){
 
             $query_string = $p_sql_queries->set_messages($number,$receiver,$time,$bearer,$ref,$message);
 
             $p_wrapper_mysql->set_db_handle($p_db_handle);
             $p_wrapper_mysql->safe_query($query_string);
-//        }
-
     }
 
+    /**Safely checks if a user with the given details exists in the database
+     * @param $p_db_handle Database handle
+     * @param $p_sql_queries SQL query as a string
+     * @param $p_wrapper_mysql Instance of MySQLWrapper
+     * @param $arr_clean_auth Array of validated and sanitised user details
+     * @return bool true if the user exists in the database
+     * @throws Exception
+     */
     public function check_db_register($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $arr_hash)
     {
         $string_number= $arr_hash['number'];
@@ -99,6 +120,14 @@ class SmsConversionModel
         }
     }
 
+    /**Safely checks if a user with the given details exists in the database
+     * @param $p_db_handle Database handle
+     * @param $p_sql_queries SQL query as a string
+     * @param $p_wrapper_mysql Instance of MySQLWrapper
+     * @param $arr_clean_auth Array of validated and sanitised user details
+     * @return bool true if the user exists in the database
+     * @throws Exception
+     */
     public function check_db_login($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $arr_clean_auth)
     {
 
@@ -127,15 +156,19 @@ class SmsConversionModel
 
     }
 
-
-
+    /**Retrieves a users name from the database
+     * @param $p_db_handle Database handle
+     * @param $p_sql_queries SQL query as a string
+     * @param $p_wrapper_mysql Instance of MySQLWrapper
+     * @param $arr_hash Array of user data
+     * @return string Users name as a string
+     */
     public function getUserName($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $arr_hash){
         $default = 'User!';
 
         $number = $arr_hash['number'];
         $query_name = $p_sql_queries->check_user($number);
         $p_wrapper_mysql->set_db_handle($p_db_handle);
-//        var_dump($query_name, $arr_hash);
         $p_wrapper_mysql->safe_query($query_name);
         $query = $p_wrapper_mysql->safe_fetch_array();
         $name = $query['username'];
@@ -145,11 +178,7 @@ class SmsConversionModel
         else{
             return $default ;
         }
-
-
     }
-
-
 
 
 }

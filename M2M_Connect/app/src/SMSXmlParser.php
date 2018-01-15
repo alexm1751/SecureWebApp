@@ -33,6 +33,10 @@ class SMSXmlParser
 
     }
 
+    /**Sets the current instance of SMSXmlParser $c_xml_string_to_parse property
+     * @param $p_xml_string_to_parse String containing XML
+     * @throws Exception Error thrown if null is passed in as an argument
+     */
     public function set_xml_string_to_parse($p_xml_string_to_parse)
     {
         if ($p_xml_string_to_parse === "" || is_null($p_xml_string_to_parse)) {
@@ -42,11 +46,17 @@ class SMSXmlParser
         $this->c_xml_string_to_parse = $p_xml_string_to_parse;
     }
 
+    /**Returns and array of string containing parsed XML
+     * @return array XMl data as an array of strings
+     */
     public function get_parsed_data()
     {
         return $this->c_arr_parsed_data;
     }
 
+    /**
+     * Parses the current XML stored within this instance of the SMSXmlParser
+     */
     public function parse_the_xml_string()
     {
         $this->c_xml_parser = xml_parser_create();
@@ -110,6 +120,9 @@ class SMSXmlParser
         $this->c_obj_xml_parser = $p_obj_xml_parser;
     }
 
+    /**
+     * Clears the current data stored in this instance of the SMSXmlParser so it may be reused
+     */
     public function clear_data()
     {
         $this->c_arr_parsed_data = [];

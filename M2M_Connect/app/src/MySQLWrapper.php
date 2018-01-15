@@ -28,6 +28,13 @@ class MySQLWrapper
         $this->c_obj_db_handle = $p_obj_db_handle;
     }
 
+    /**Using a build in library PDO, this function take a string in the form of an SQL query and any parameters
+     * to pass with it and attempts to query the SQL database attached to this application. An error is thrown
+     * in the event PDO can not complete the function.
+     * @param $p_query_string SQL string to query the database with
+     * @param null $p_arr_params Data to be passed to the database
+     * @return mixed
+     */
     public function safe_query($p_query_string, $p_arr_params = null)
     {
         $this->c_arr_errors['db_error'] = false;
@@ -65,24 +72,36 @@ class MySQLWrapper
         return $this->c_arr_errors['db_error'];
     }
 
+    /**Count ths number of rows for a given SQL query
+     * @return mixed
+     */
     public function count_rows()
     {
         $m_num_rows = $this->c_obj_stmt->rowCount();
         return $m_num_rows;
     }
 
+    /**Returns a row of data for the current instance on MySQLWrapper
+     * @return mixed
+     */
     public function safe_fetch_row()
     {
         $m_record_set = $this->c_obj_stmt->fetch(PDO::FETCH_NUM);
         return $m_record_set;
     }
 
+    /**Returns the array fo data currently held in this instance of MySQLWrapper
+     * @return mixed
+     */
     public function safe_fetch_array()
     {
         $m_arr_row = $this->c_obj_stmt->fetch(PDO::FETCH_ASSOC);
         return $m_arr_row;
     }
 
+    /**Returns the ID of the last element inserted into the database
+     * @return mixed
+     */
     public function last_inserted_ID()
     {
         $m_sql_query = 'SELECT LAST_INSERT_ID()';

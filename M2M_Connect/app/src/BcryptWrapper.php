@@ -13,6 +13,10 @@ class BcryptWrapper
 
     public function __destruct(){}
 
+    /**Generates and returns a hashed string
+     * @param $p_string_to_hash String that needs to be hashed
+     * @return bool|string hashed string
+     */
     public function create_hashed_password($p_string_to_hash)
     {
         $password_to_hash = $p_string_to_hash;
@@ -25,6 +29,11 @@ class BcryptWrapper
         return $bcrypt_hashed_password;
     }
 
+    /**Verifies a given hashed password against a clean string password to check for equality
+     * @param $p_string_to_check clean string password
+     * @param $p_stored_user_password_hash hashed password to check against
+     * @return bool true if the hashed password and clean string are equal
+     */
     public function authenticate_password($p_string_to_check, $p_stored_user_password_hash)
     {
         $user_authenticated = false;
