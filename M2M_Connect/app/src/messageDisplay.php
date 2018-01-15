@@ -18,9 +18,16 @@ class messageDisplay
 
    public function __construct()
    {
-
    }
 
+    /**Used to initialise an instance of messageDisplay
+     * @param $sender Phone number of sender
+     * @param $receiver Phone number of receiver
+     * @param $date Date the message was sent
+     * @param $bearer Type of message sent
+     * @param $ref Reference of message
+     * @param $message Text content of message
+     */
    public function init($sender,$receiver,$date,$bearer,$ref, $message)
    {
 
@@ -32,41 +39,56 @@ class messageDisplay
        $this->message = $message;
    }
 
-   public function getSender(){
+    /**Public function that returns Phone number of sender
+     * @return mixed
+     */
+    public function getSender(){
+        return $this->sender;
+    }
 
-       return $this->sender;
-   }
-
+    /**Public function that returns Phone number of receiver
+     * @return mixed
+     */
     public function getReceiver(){
 
        return $this->receiver;
 
     }
 
+    /**Public function that returns date the message was sent
+     * @return mixed
+     */
     public function getDate(){
        return $this->date;
 
     }
 
+    /**Public function that returns type of message sent
+     * @return mixed
+     */
     public function getBearer(){
 
        return $this->bearer;
 
     }
 
+    /**Public function that returns reference for the message
+     * @return mixed
+     */
     public function getRef(){
 
        return $this->ref;
 
     }
 
+    /**Public function that returns Text content of message
+     * @return mixed
+     */
     public function getMessage(){
 
        return $this->message;
 
     }
-
-
 
    public function _toString(){
 

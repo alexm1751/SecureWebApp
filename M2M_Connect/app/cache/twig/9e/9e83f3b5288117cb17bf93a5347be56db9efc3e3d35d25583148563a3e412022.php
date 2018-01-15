@@ -31,15 +31,24 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
         echo "    <!--  NAVIGATION -->
     <nav>
         <ul class=\"menu\">
-            <li><a href=\"index.php\" class=\"active\">Home</a></li>
+            <li><a href=\"";
+        // line 6
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"active\">Home</a></li>
 
-            <li><a href=\"about.html\">About</a></li>
+
         </ul>
     </nav>
 
-    <form action=\"index.html\" method=\"get\">
+    <form action=\"";
+        // line 12
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" method=\"get\">
         <button type=\"submit\" id=\"logout\">Logout</button>
-        <h3>Hello, Barry!</h3>
+        <h3>Hello ";
+        // line 14
+        echo twig_escape_filter($this->env, ($context["username"] ?? null), "html", null, true);
+        echo "!</h3>
         <h4>Select below the messages you would like to view: all messages or your own messages.</h4>
     </form>
     <div class=\"container\">
@@ -54,16 +63,23 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
             <button type=\"submit\" class=\"messages\" id=\"mymessage\">MY MESSAGES</button>
         </form>
 
-        <input type=\"button\" value=\"Go Back From Whence You Came!\" onclick=\"history.back(-1)\" />
-    </div>
+        ";
+        // line 25
+        echo "    </div>
 
 
 
 
     <!--  FOOTER   -->
     <footer class=\"footer\">
-        <h5><a href=\"index.html\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
-        <h6><a href=\"index.html\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h6>
+        <h5><a href=\"";
+        // line 32
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
+        <h6><a href=\"";
+        // line 33
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h6>
 
         <p id=\"footer\"><a href=\"https://github.com/alexm1751/SecureWebApp\">Created by Alex Mason, Dominic Bryan and Alistair Laughland</a></p>
 
@@ -84,7 +100,7 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
 
     public function getDebugInfo()
     {
-        return array (  48 => 18,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  81 => 33,  77 => 32,  68 => 25,  57 => 18,  50 => 14,  45 => 12,  36 => 6,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

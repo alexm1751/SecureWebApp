@@ -20,7 +20,7 @@ $app->get('/', function(Request $request, Response $response)
             'css_path' => CSS_PATH,
             'landing_page' => LANDING_PAGE,
             'method' => 'post',
-            'action' => 'index.php/processsmsconversion',
+            'action' => 'index.php/register',
             'method2' => 'post',
             'action2' => 'index.php/register',
             'initial_input_box_value' => null,

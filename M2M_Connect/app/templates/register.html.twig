@@ -5,13 +5,13 @@
         <ul class="menu">
             <li><a href="{{ landing_page }}" class="active">Home</a></li>
 
-            <li><a href="{{ landing_page }}">About</a></li>
+
         </ul>
     </nav>
 
     <form action="{{ landing_page }}" method="get">
         <button type="submit" id="logout">Logout</button>
-        <h3>Hello!</h3>
+        <h3>Hello {{ username }}!</h3>
         <h4>Select below the messages you would like to view: all messages or your own messages.</h4>
     </form>
     <div class="container">
