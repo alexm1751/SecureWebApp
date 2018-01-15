@@ -29,7 +29,7 @@ class SMSvalidator
         //15 digits to meet Telecomunication Standardization Sector requirements for international numbers
 
         if ($clean_Smsisdn === false) {
-            throw new Exception('nope');
+            throw new Exception('Sender Error, Check number used.');
 
         }
 
@@ -45,7 +45,7 @@ class SMSvalidator
         //15 digits to meet Telecomunication Standardization Sector requirements for international numbers
 
         if ($clean_Dmsisdn === false) {
-            throw new Exception('nope');
+            throw new Exception('Receiver Error, Check number used.');
         }
 
 		return $clean_Dmsisdn;
@@ -59,7 +59,7 @@ class SMSvalidator
         $clean_receivedTime = filter_var($tainted_receivedTime, FILTER_SANITIZE_STRING);
 
         if ($clean_receivedTime === false) {
-            throw new Exception('nope');
+            throw new Exception('Time Error, Check Date/Time sent.');
         }
 
 
@@ -75,7 +75,7 @@ class SMSvalidator
 
 
         if ($clean_bearer === false){
-            throw new Exception('nope');
+            throw new Exception('Bearer Invalid, Check message is correct format.');
         }
 
         return $clean_bearer;
@@ -91,7 +91,7 @@ class SMSvalidator
 
 
         if ($clean_messageref === false){
-            throw new Exception('nope');
+            throw new Exception('Ref Invalid, Check Ref Sent');
         }
 
         return $clean_messageref;
@@ -104,7 +104,7 @@ class SMSvalidator
         $clean_messageContent = filter_var($tainted_messageContent, FILTER_SANITIZE_STRING);
 
         if ($clean_messageContent === false) {
-            throw new Exception('nope');
+            throw new Exception('Message Invalid, Check Message Sent');
         }
 
         return $clean_messageContent;
@@ -117,7 +117,7 @@ class SMSvalidator
         $clean_name = filter_var($tainted_Name, FILTER_SANITIZE_STRING);
 
         if ($clean_name=== false) {
-            throw new Exception('nope');
+            throw new Exception('Auth String Failure');
         }
 
         return $clean_name;

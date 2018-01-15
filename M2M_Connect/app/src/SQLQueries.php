@@ -72,4 +72,11 @@ class SQLQueries
         return $m_sql_query_string;
     }
 
+    public static function check_user($number){
+        $m_sql_query_string  = "SELECT username ";
+        $m_sql_query_string .= "FROM user ";
+        $m_sql_query_string .= "WHERE number =  $number";
+        return $m_sql_query_string;
+}
+
 }
