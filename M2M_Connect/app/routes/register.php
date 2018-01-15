@@ -36,14 +36,16 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
 
     $arr_cleaned_auth = validation($validator, $arr_tainted_auth);
 
-    //var_dump($arr_tainted_auth);
+//    var_dump($arr_cleaned_auth);
     $arr_hashed = hash_values($bcrypt_wrapper, $arr_cleaned_auth);
+
 
     $username = '';
 
     if(sizeof($arr_hashed) >2){
         try {
             $register_details= $sms_model->check_db_register($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+            $username = $sms_model->getUserName($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
         } catch (Exception $e) {
             return $response->withRedirect('/SecureWebApp/M2M_Connect_public/');
         }
@@ -51,7 +53,8 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
     else{
         try {
             $login_details= $sms_model->check_db_login($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
-
+            $username = $sms_model->getUserName($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+            
         } catch (Exception $e) {
             return $response->withRedirect('/SecureWebApp/M2M_Connect_public/');
         }

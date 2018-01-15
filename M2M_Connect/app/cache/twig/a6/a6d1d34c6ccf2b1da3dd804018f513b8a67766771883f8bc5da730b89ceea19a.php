@@ -31,8 +31,14 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
         echo "  <!--  NAVIGATION -->
   <nav>
     <ul class=\"menu\">
-      <li><a href=\"index.html\">Home</a></li>
-      <li><a href=\"message.html\" class=\"active\">Account</a></li>
+      <li><a href=\"";
+        // line 6
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\">Home</a></li>
+      <li><a href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"active\">Account</a></li>
     </ul>
   </nav>
 
@@ -91,8 +97,14 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
         echo "
   <!--  FOOTER   -->
   <footer class=\"footer\">
-    <h5><a href=\"index.html\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
-    <h6><a href=\"index.html\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h6>
+    <h5><a href=\"";
+        // line 41
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
+    <h6><a href=\"";
+        // line 42
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h6>
 
     <p id=\"footer\"><a href=\"https://github.com/alexm1751/SecureWebApp\">Created by Alex Mason, Dominic Bryan and Alistair Laughland</a></p>
 
@@ -113,7 +125,7 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
 
     public function getDebugInfo()
     {
-        return array (  91 => 38,  80 => 33,  75 => 31,  70 => 29,  65 => 27,  60 => 25,  49 => 16,  45 => 15,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  106 => 42,  102 => 41,  97 => 38,  86 => 33,  81 => 31,  76 => 29,  71 => 27,  66 => 25,  55 => 16,  51 => 15,  40 => 7,  36 => 6,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

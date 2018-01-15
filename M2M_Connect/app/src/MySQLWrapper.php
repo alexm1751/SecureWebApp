@@ -33,11 +33,10 @@ class MySQLWrapper
         $this->c_arr_errors['db_error'] = false;
         $m_query_string = $p_query_string;
         $m_arr_query_parameters = $p_arr_params;
-
         try
         {
             $m_temp = array();
-
+//            var_dump($this->c_obj_db_handle);
             $this->c_obj_stmt = $this->c_obj_db_handle->prepare($m_query_string);
 
             // bind the parameters

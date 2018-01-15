@@ -34,7 +34,7 @@ $app->map(['GET', 'POST'],
         $message_display = $this->get('messageDisplay');
 
 
-        $arr_tainted_auth = $request->getParsedBody();
+      //  $arr_tainted_auth = $request->getParsedBody();
 
 
 
@@ -52,6 +52,8 @@ $app->map(['GET', 'POST'],
         /**<messagerx><sourcemsisdn>447817814149</sourcemsisdn><destinationmsisdn>447817814149</destinationmsisdn><receivedtime>12/01/2018 15:24:09</receivedtime><bearer>SMS</bearer><messageref>0</messageref><message>Hello5 </message></messagerx>**/
 
         $arr_tainted_messages = $sms_model->getUnreadMessages();
+
+        //var_dump($arr_tainted_messages);
         //$arr_tainted_messages = $sms_model->readMessages();
 
         //Changed to Peek Messages due to readMessages removes other peoples messages.
@@ -105,7 +107,7 @@ $app->map(['GET', 'POST'],
 
             $xml_parser->clear_data();
             $result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $clean_source, $clean_receiver, $clean_time, $clean_bearer, $clean_ref, $clean_message);
-//            var_dump($result);
+//            var_dump($clean_message);
         }
 
         //$result = $sms_model->setMessagesDB($db_handle, $sql_queries, $wrapper_mysql, $c_arr_clean_message);
@@ -125,6 +127,7 @@ $app->map(['GET', 'POST'],
 
         //var_dump($register_details);
         $list_messages = $sms_model->getMessagesDB($db_handle,$sql_queries,$wrapper_mysql);
+//        var_dump($list_messages);
 //        print_r($list_messages[0]->getMessage());
 
 

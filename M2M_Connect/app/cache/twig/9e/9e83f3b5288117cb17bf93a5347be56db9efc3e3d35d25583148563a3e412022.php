@@ -31,15 +31,27 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
         echo "    <!--  NAVIGATION -->
     <nav>
         <ul class=\"menu\">
-            <li><a href=\"index.php\" class=\"active\">Home</a></li>
+            <li><a href=\"";
+        // line 6
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"active\">Home</a></li>
 
-            <li><a href=\"about.html\">About</a></li>
+            <li><a href=\"";
+        // line 8
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\">About</a></li>
         </ul>
     </nav>
 
-    <form action=\"index.html\" method=\"get\">
+    <form action=\"";
+        // line 12
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" method=\"get\">
         <button type=\"submit\" id=\"logout\">Logout</button>
-        <h3>Hello, Barry!</h3>
+        <h3>Hello ";
+        // line 14
+        echo twig_escape_filter($this->env, ($context["username"] ?? null), "html", null, true);
+        echo "!</h3>
         <h4>Select below the messages you would like to view: all messages or your own messages.</h4>
     </form>
     <div class=\"container\">
@@ -63,8 +75,14 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
 
     <!--  FOOTER   -->
     <footer class=\"footer\">
-        <h5><a href=\"index.html\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
-        <h6><a href=\"index.html\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h6>
+        <h5><a href=\"";
+        // line 32
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"heading\">EE M2M SOAP Server Application</a></h5>
+        <h6><a href=\"";
+        // line 33
+        echo twig_escape_filter($this->env, ($context["landing_page"] ?? null), "html", null, true);
+        echo "\" class=\"heading\">CTEC3110 Secure Web Application Development</a></h6>
 
         <p id=\"footer\"><a href=\"https://github.com/alexm1751/SecureWebApp\">Created by Alex Mason, Dominic Bryan and Alistair Laughland</a></p>
 
@@ -85,7 +103,7 @@ class __TwigTemplate_c48fdbdce40694e7d473a3c90a9514d8d3923d1ebc26838cb2de466646a
 
     public function getDebugInfo()
     {
-        return array (  59 => 25,  48 => 18,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  84 => 33,  80 => 32,  71 => 25,  60 => 18,  53 => 14,  48 => 12,  41 => 8,  36 => 6,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

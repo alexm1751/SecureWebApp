@@ -36,6 +36,5 @@ CREATE TABLE `message_content` (
   `bearer` VARCHAR(10) NOT NULL,
   `ref` int(20) NOT NULL,
   `message` varchar(200) NOT NULL,
-  FOREIGN KEY (number) REFERENCES number (user),
   PRIMARY KEY (`message_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

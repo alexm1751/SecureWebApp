@@ -80,11 +80,10 @@ class SmsConversionModel
     public function check_db_register($p_db_handle, $p_sql_queries, $p_wrapper_mysql, $arr_hash)
     {
         $string_number= $arr_hash['number'];
-
         $query_string = $p_sql_queries->check_user_exists($string_number);
+        $p_wrapper_mysql->set_db_handle($p_db_handle);
         $p_wrapper_mysql->safe_query($query_string);
         $numbers = $p_wrapper_mysql->count_rows();
-        //var_dump($numbers);
 
         if ($numbers > 0) {
             echo('User Number already exists!');
@@ -145,6 +144,7 @@ class SmsConversionModel
         $number = $arr_hash['number'];
         $query_name = $p_sql_queries->check_user($number);
         $p_wrapper_mysql->set_db_handle($p_db_handle);
+//        var_dump($query_name, $arr_hash);
         $p_wrapper_mysql->safe_query($query_name);
         $query = $p_wrapper_mysql->safe_fetch_array();
         $name = $query['username'];
