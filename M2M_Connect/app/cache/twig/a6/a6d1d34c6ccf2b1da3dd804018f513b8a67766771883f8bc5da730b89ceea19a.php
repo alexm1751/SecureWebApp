@@ -42,26 +42,15 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
 
   <main class=\"main\" id=\"mainmessage\">
   <!--    INTRO -->
-  <form action=\"index.html\" method=\"get\">
-    <button type=\"submit\" id=\"logout\">Logout</button>
-    <h3>Hello, Barry!</h3>
-    <h4>Select below the messages you would like to view: all messages or your own messages.</h4>
-  </form>
-  <div class=\"container\">
-    <form action=\"message.html\" method=\"get\">
-      <p>View messages:</p>
-      <button type=\"submit\" class=\"messages\" id=\"allmessage\" autofocus>ALL MESSAGES</button>
-      <button type=\"submit\" class=\"messages\" id=\"mymessage\">MY MESSAGES</button>
-    </form>
-  </div>
+
 
 
     ";
-        // line 31
+        // line 20
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["message_array"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 32
+            // line 21
             echo "      <!--    MESSAGES  -->
       <div class=\"forms\">
         <!--    REGISTER  -->
@@ -72,27 +61,27 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
 
             <label>Number:</label>
             <output>";
-            // line 41
+            // line 30
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getSender", array(), "method"), "html", null, true);
             echo "</output>
             <label>Receiver:</label>
             <output>";
-            // line 43
+            // line 32
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getReceiver", array(), "method"), "html", null, true);
             echo "</output>
             <label>Time:</label>
             <output>";
-            // line 45
+            // line 34
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getDate", array(), "method"), "html", null, true);
             echo "</output>
             <label>Bearer:</label>
             <output>";
-            // line 47
+            // line 36
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getBearer", array(), "method"), "html", null, true);
             echo "</output>
             <label>Message:</label>
             <textarea>";
-            // line 49
+            // line 38
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["message"], "getMessage", array(), "method"), "html", null, true);
             echo "</textarea>
           </form>
@@ -103,7 +92,7 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 54
+        // line 43
         echo "
   <!--  FOOTER   -->
   <footer class=\"footer\">
@@ -129,7 +118,7 @@ class __TwigTemplate_f6af0f2639e2e3ed711deed3511f72906ee71a9dd78ca85b0cfe44480c0
 
     public function getDebugInfo()
     {
-        return array (  107 => 54,  96 => 49,  91 => 47,  86 => 45,  81 => 43,  76 => 41,  65 => 32,  61 => 31,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  96 => 43,  85 => 38,  80 => 36,  75 => 34,  70 => 32,  65 => 30,  54 => 21,  50 => 20,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

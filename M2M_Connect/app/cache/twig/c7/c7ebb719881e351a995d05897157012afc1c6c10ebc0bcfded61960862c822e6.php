@@ -37,9 +37,6 @@ class __TwigTemplate_e6976c9967f07430992dec60b79aa881e06b441348d933f6a469d70ea8e
                 <label>Full Name</label>
                 <input type=\"text\" placeholder=\"e.g. Joe Smith\" name=\"reguser\" required>
 
-                <label>Email</label>
-                <input type=\"text\" placeholder=\"e.g. smith@email.com\" name=\"regemail\" required>
-
                 <label>Password</label>
                 <input type=\"password\" placeholder=\"Enter Password\" name=\"regpass\" required>
 

@@ -9,7 +9,8 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-$app->post(
+
+$app->map(['GET', 'POST'],
     '/processsmsconversion',
     function(Request $request, Response $response) use ($app)  {
 
@@ -121,7 +122,7 @@ $app->post(
                 'message_array' => $list_messages,
 
             ]);
-    });
+    })->setName('processsmsconversion');;
 
 function validation($p_validator, $p_arr_tainted_params)
 {

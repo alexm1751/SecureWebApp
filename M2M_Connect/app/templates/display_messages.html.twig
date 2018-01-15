@@ -14,18 +14,7 @@
 
   <main class="main" id="mainmessage">
   <!--    INTRO -->
-  <form action="index.html" method="get">
-    <button type="submit" id="logout">Logout</button>
-    <h3>Hello, Barry!</h3>
-    <h4>Select below the messages you would like to view: all messages or your own messages.</h4>
-  </form>
-  <div class="container">
-    <form action="message.html" method="get">
-      <p>View messages:</p>
-      <button type="submit" class="messages" id="allmessage" autofocus>ALL MESSAGES</button>
-      <button type="submit" class="messages" id="mymessage">MY MESSAGES</button>
-    </form>
-  </div>
+
 
 
     {% for message in message_array %}

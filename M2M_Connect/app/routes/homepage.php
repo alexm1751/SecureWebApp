@@ -12,6 +12,8 @@ use \Psr\Http\Message\ResponseInterface as Response;
 $app->get('/', function(Request $request, Response $response)
 {
 
+
+
     return $this->view->render($response,
         'homepageform.html.twig',
         [
@@ -20,12 +22,15 @@ $app->get('/', function(Request $request, Response $response)
             'method' => 'post',
             'action' => 'index.php/processsmsconversion',
             'method2' => 'post',
-            'action2' => 'index.php/processsmsconversion',
+            'action2' => 'index.php/register',
             'initial_input_box_value' => null,
             'page_title' => APP_NAME,
             'page_heading_1' => APP_NAME,
             'page_heading_2' => 'EE SMS Messaging Service',
             'page_text' => 'Select a message',
+
         ]);
 })->setName('homepage');
+
+
 

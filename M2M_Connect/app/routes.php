@@ -8,3 +8,4 @@
 
 require 'routes/homepage.php';
 require 'routes/ProcessSmsConversion.php';
+require 'routes/register.php';
