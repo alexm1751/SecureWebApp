@@ -39,19 +39,26 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
     //var_dump($arr_tainted_auth);
     $arr_hashed = hash_values($bcrypt_wrapper, $arr_cleaned_auth);
 
-
+    $username = '';
 
     if(sizeof($arr_hashed) >2){
-        $register_details= $sms_model->check_db_register($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+        try {
+            $register_details= $sms_model->check_db_register($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+        } catch (Exception $e) {
+            return $response->withRedirect('/SecureWebApp/M2M_Connect_public/');
+        }
     }
     else{
-        $login_details= $sms_model->check_db_login($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+        try {
+            $login_details= $sms_model->check_db_login($db_handle,$sql_queries,$wrapper_mysql, $arr_hashed);
+
+        } catch (Exception $e) {
+            return $response->withRedirect('/SecureWebApp/M2M_Connect_public/');
+        }
+
 
     }
 
-    if (false) {
-        return $response->withRedirect('/SecureWebApp/M2M_Connect_public/');
-    }
 
     return $this->view->render($response,
         'register.html.twig',
@@ -60,6 +67,7 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
             'landing_page' => LANDING_PAGE,
             'initial_input_box_value' => null,
             'page_title' => APP_NAME,
+            'username' => $username,
             'method' => 'post',
             'action' => 'processsmsconversion',
         ]);

@@ -120,6 +120,7 @@ class SmsConversionModel
 
         if ($numbers > 0) {
             echo('User Number already exists!');
+            throw new Exception('User Number already exists!');
             return false;
         } else {
             $username= $arr_hash['username'];
@@ -149,6 +150,7 @@ class SmsConversionModel
         $name_entered = $p_wrapper_mysql->count_rows();
         if ($name_entered <= 0) {
             echo('Issue With Number or Password');
+            throw new Exception('Issue with Number or Password');
             return false;
         }
         //var_dump($hashed_pass);
@@ -156,6 +158,7 @@ class SmsConversionModel
         //array password
         if (password_verify($hashed_pass, $password) != true){
             echo('Issue with Number or Password');
+            throw new Exception('Issue with Number or Password');
             return false;
         }
          else {
