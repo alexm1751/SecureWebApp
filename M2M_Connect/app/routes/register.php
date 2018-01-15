@@ -36,7 +36,6 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
 
     $arr_cleaned_auth = validation($validator, $arr_tainted_auth);
 
-//    var_dump($arr_cleaned_auth);
     $arr_hashed = hash_values($bcrypt_wrapper, $arr_cleaned_auth);
 
 
@@ -76,6 +75,13 @@ $app->map(['GET', 'POST'], '/register', function(Request $request, Response $res
         ]);
 })->setName('register');
 
+
+
+/**validation of parameters given by the current user for login or registration.
+ * @param $p_validator instance of SMSvalidator.php
+ * @param $p_arr_tainted_params array of parameters containing user details
+ * @return array array of validated user details
+ */
 function validation($p_validator, $p_arr_tainted_params)
 {
 
@@ -108,6 +114,12 @@ function validation($p_validator, $p_arr_tainted_params)
 
 }
 
+
+/**Hashes a given password and returns it along with other associated user details.
+ * @param $p_bcrypt_wrapper instance of BcryptWrapper.php
+ * @param $p_arr_cleaned_params array of validated parameters
+ * @return array array of user details with a hashed password.
+ */
 function hash_values($p_bcrypt_wrapper, $p_arr_cleaned_params)
 {
     $arr_encoded = [];
